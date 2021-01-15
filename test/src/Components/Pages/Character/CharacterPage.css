@@ -13,8 +13,8 @@
   grid-template-columns: auto auto;
   grid-gap: 10px;
   padding: 10px;
-  border: solid 2px;
-  border-color: gold;
+  
+  border-color: goldenrod;
   height: 80%;
 }
 
@@ -23,15 +23,15 @@
   grid-template-columns: auto;
   grid-gap: 10px;
   padding: 10px;
-  border-color: gold;
+  border-color: goldenrod;
 }
 
 .panel {
   text-align: center;
   padding: 20px 10px;
   font-size: x-large;
-  color: gold;
-  border-color: gold;
+  color: goldenrod;
+  border-color: goldenrod;
   border: solid 1px;
 }
 

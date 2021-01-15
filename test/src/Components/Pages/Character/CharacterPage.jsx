@@ -3,6 +3,7 @@ import "./CharacterPage.css";
 import { CharacterCollection, CharactersContext } from "./CharacterContext";
 import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
+import Adventures from "../Quests/Adventures";
 
 
 const CharacterPage = () => {
@@ -28,6 +29,15 @@ const CharacterPage = () => {
     );
   };
 
+  const renderAdventures = () => {
+    ReactDOM.render(
+      <CharacterCollection>
+          <Adventures></Adventures>
+      </CharacterCollection>,
+      document.getElementById("right-container")
+    );
+  };
+
 
   return (
     <div className="character-page">
@@ -40,7 +50,7 @@ const CharacterPage = () => {
           <div className="panel"> Inventory</div>
           <div className="panel"> Equipment</div>
           <div className="panel"> Skills</div>
-          <div className="panel"> Quests</div>
+          <div className="panel" onClick={renderAdventures}> Adventures</div>
         </div>
         <div id="right-container" className="grid-container">
 

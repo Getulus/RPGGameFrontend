@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CharactersContext } from "../CharacterContext";
 import image from "../../../../Img/warrior.png";
+import warriorIcon from "../../../../Img/warrioricon.jpg"
 import "../Attributes/CharacterAttributesStyle.css";
 
 const CharacterAttributes = () => {
@@ -14,7 +15,7 @@ const CharacterAttributes = () => {
   return (
     <div className="detail-panel">
       <div className="character-picture">
-        <img src={image} alt="character-image" />
+        <img src={image} id="character-img" alt="character-image" />
       </div>
       <div className="details" >
         <div id="general" className="atr-panel">
@@ -45,6 +46,10 @@ const CharacterAttributes = () => {
           <p>Critical chance: {currentPlayer.criticalChance} %</p>
           <p>Armor: {currentPlayer.armor}</p>
           <p>Magic Resistance: {currentPlayer.magicResistance}</p>
+        </div>
+
+        <div className="atr-panel">
+          <img id="type-icon" alt="type" src={warriorIcon}></img>
         </div>
       </div>
     </div>
