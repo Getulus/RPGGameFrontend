@@ -1,0 +1,55 @@
+
+
+.character-page {
+  min-height: 70vh;
+  align-content: center;
+  font-family: fantasy;
+
+}
+
+.big-container {
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border: solid 2px;
+  border-color: gold;
+  height: 80%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border-color: gold;
+}
+
+.panel {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: x-large;
+  color: gold;
+  border-color: gold;
+  border: solid 1px;
+}
+
+.panel:hover{
+  cursor: pointer;
+}
+
+#left-container > div{
+  margin: auto;
+  width: 100%;
+}
+
+#left-container{
+  margin: auto;
+  height: 80%;
+}
+
+#right-container{
+  margin: auto;
+  height: 80%;
+}

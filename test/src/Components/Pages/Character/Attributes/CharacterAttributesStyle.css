@@ -1,0 +1,43 @@
+.detail-panel {
+    height: 80%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+  .character-picture{
+    align-content: center;
+    display: grid;
+    width: 80%;
+    height: 80%;
+  
+  }
+
+  .details{
+
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    text-align: left;
+    color: goldenrod;
+    width: 100%;
+    height: 80%;
+  }
+
+  img{
+    width: 100%;
+    height:100%;
+  }
+
+  .atr-panel{
+    border: solid 1px goldenrod;
+    margin: 5px;
+    text-align: center;
+    
+  }
+
+p{
+}
+
+.detail-title{
+  font-size: x-large;
+  font-style: oblique;
+}
