@@ -1,14 +1,18 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {
+  BrowserRouter as Router,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import { CharactersContext } from "../Character/CharacterContext";
 import "./AdventuresStyle.css";
-import forestImg from "../../../Img/forest.jpg"
-import devilsPitImg from "../../../Img/devilspit.jpeg"
-import lionsHighlandImg from "../../../Img/lionshighland.jpeg"
-import ogresLandImg from "../../../Img/ogresland.png"
-import spiderCaveImg from "../../../Img/spidercave.jpeg"
-import towerOfSufferingImg from "../../../Img/towerofsuffering.jpeg"
-
-
+import { Link } from "react-router-dom";
+import forestImg from "../../../Img/forest.jpg";
+import devilsPitImg from "../../../Img/devilspit.jpeg";
+import lionsHighlandImg from "../../../Img/lionshighland.jpeg";
+import ogresLandImg from "../../../Img/ogresland.png";
+import spiderCaveImg from "../../../Img/spidercave.jpeg";
+import towerOfSufferingImg from "../../../Img/towerofsuffering.jpeg";
 
 const Adventures = () => {
   const [
@@ -22,8 +26,11 @@ const Adventures = () => {
     <div className="adventure-container">
       <div className="adventure-panel">
         <p className="adv-title">Misty Forest 1-3</p>
-        <img src={forestImg}  alt="adv-img" className="adv-img"></img>
+        <a href="/combat">
+          <img src={forestImg} alt="adv-img" className="adv-img"></img>
+        </a>
       </div>
+
       <div className="adventure-panel">
         <p className="adv-title">Spider Cave 2-4</p>
         <img src={spiderCaveImg} alt="adv-img" className="adv-img"></img>

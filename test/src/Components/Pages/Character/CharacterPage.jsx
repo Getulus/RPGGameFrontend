@@ -1,10 +1,14 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {
+  BrowserRouter as Router,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import "./CharacterPage.css";
 import { CharacterCollection, CharactersContext } from "./CharacterContext";
 import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
 import Adventures from "../Quests/Adventures";
-
 
 const CharacterPage = () => {
   const [
@@ -14,16 +18,14 @@ const CharacterPage = () => {
     setCurrentMonster,
   ] = useContext(CharactersContext);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     renderRightSide();
-  },[])
-  
+  }, []);
 
   const renderRightSide = () => {
     ReactDOM.render(
       <CharacterCollection>
-          <CharacterAttributes></CharacterAttributes>
+        <CharacterAttributes></CharacterAttributes>
       </CharacterCollection>,
       document.getElementById("right-container")
     );
@@ -31,13 +33,12 @@ const CharacterPage = () => {
 
   const renderAdventures = () => {
     ReactDOM.render(
-      <CharacterCollection>
+        <CharacterCollection>
           <Adventures></Adventures>
-      </CharacterCollection>,
+        </CharacterCollection>,
       document.getElementById("right-container")
     );
   };
-
 
   return (
     <div className="character-page">
@@ -50,11 +51,12 @@ const CharacterPage = () => {
           <div className="panel"> Inventory</div>
           <div className="panel"> Equipment</div>
           <div className="panel"> Skills</div>
-          <div className="panel" onClick={renderAdventures}> Adventures</div>
+          <div className="panel" onClick={renderAdventures}>
+            {" "}
+            Adventures
+          </div>
         </div>
-        <div id="right-container" className="grid-container">
-
-        </div>
+        <div id="right-container" className="grid-container"></div>
       </div>
     </div>
   );
