@@ -26,9 +26,9 @@ const Adventures = () => {
     <div className="adventure-container">
       <div className="adventure-panel">
         <p className="adv-title">Misty Forest 1-3</p>
-        <a href="/combat">
+        <Link to="/combat">
           <img src={forestImg} alt="adv-img" className="adv-img"></img>
-        </a>
+        </Link>
       </div>
 
       <div className="adventure-panel">

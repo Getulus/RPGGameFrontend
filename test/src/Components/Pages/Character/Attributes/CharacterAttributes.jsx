@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CharactersContext } from "../CharacterContext";
 import image from "../../../../Img/warrior.png";
-import warriorIcon from "../../../../Img/warrioricon.jpg"
+import warriorIcon from "../../../../Img/warrioricon.jpg";
 import "../Attributes/CharacterAttributesStyle.css";
 
 const CharacterAttributes = () => {
@@ -17,10 +17,11 @@ const CharacterAttributes = () => {
       <div className="character-picture">
         <img src={image} id="character-img" alt="character-image" />
       </div>
-      <div className="details" >
+      <div className="details">
         <div id="general" className="atr-panel">
           <p className="detail-title">Generals:</p>
           <p>Name: {currentPlayer.name}</p>
+          <p>Level: {currentPlayer.level}</p>
           <p>Type: {currentPlayer.type}</p>
           <p>Experience: {currentPlayer.experiencePoints}</p>
           <p>

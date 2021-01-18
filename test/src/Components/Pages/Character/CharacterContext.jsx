@@ -16,6 +16,13 @@ export const CharacterCollection = (props) => {
     });
   },[update]);
 
+  useEffect(() => {
+    axios.get(`http://localhost:8762/charondor/character/monster`).then((res) => {
+      setCurrentMonster(res.data);
+      console.log(res.data)
+    });
+  },[update]);
+
   return (
     <CharactersContext.Provider
       value={[

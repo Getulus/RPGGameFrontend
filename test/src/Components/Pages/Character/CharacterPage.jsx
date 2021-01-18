@@ -22,23 +22,24 @@ const CharacterPage = () => {
     renderRightSide();
   }, []);
 
+  const [rightSide, setRightSide] = useState("");
+
   const renderRightSide = () => {
-    ReactDOM.render(
+    setRightSide(
       <CharacterCollection>
         <CharacterAttributes></CharacterAttributes>
-      </CharacterCollection>,
-      document.getElementById("right-container")
+      </CharacterCollection>
     );
   };
 
   const renderAdventures = () => {
-    ReactDOM.render(
-        <CharacterCollection>
-          <Adventures></Adventures>
-        </CharacterCollection>,
-      document.getElementById("right-container")
+    setRightSide(
+      <CharacterCollection>
+        <Adventures></Adventures>
+      </CharacterCollection>
     );
   };
+
 
   return (
     <div className="character-page">
@@ -56,7 +57,9 @@ const CharacterPage = () => {
             Adventures
           </div>
         </div>
-        <div id="right-container" className="grid-container"></div>
+        <div id="right-container" className="grid-container">
+          {rightSide}
+        </div>
       </div>
     </div>
   );

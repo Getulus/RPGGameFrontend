@@ -26,6 +26,7 @@
     grid-row-end: 3;
     height: 600px;
     width: 400px;
+    overflow: scroll;
 }
 
 .image{
@@ -51,4 +52,13 @@
     border-radius: 12px;
     margin: 30px;
     cursor: pointer;
+  }
+
+  .stat{
+      margin: 1px;
+  }
+
+  .log-blokk{
+      margin-bottom: 20px;
+      border-bottom: goldenrod dashed 1px;
   }
