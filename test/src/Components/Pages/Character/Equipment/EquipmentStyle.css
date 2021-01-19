@@ -1,0 +1,69 @@
+.equipment-main-container{
+    display: grid;
+    grid-template-columns: auto;
+    border: 1px goldenrod solid;
+    text-align: center;
+    gap: 10px;
+}
+
+.equipment-container{
+    
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: 1px goldenrod solid;
+}
+
+.inventory-container{
+    width: 800px;
+    height: 100px;
+    display: grid;
+    border: solid goldenrod 1px;
+}
+
+.slot{
+    margin: auto;
+    border: goldenrod solid 1px;
+    width: 100px
+}
+
+#head{
+    height: 100px;
+}
+
+#hand{
+    height: 100px;
+}
+
+
+#foot{
+    height: 100px;
+}
+
+
+#chest{
+    height: 130px;
+}
+
+#legs{
+    height: 150px;
+}
+
+#left-hand{
+    height: 180px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#right-hand{
+    height: 180px;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+

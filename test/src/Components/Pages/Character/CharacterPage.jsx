@@ -9,6 +9,7 @@ import { CharacterCollection, CharactersContext } from "./CharacterContext";
 import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
 import Adventures from "../Quests/Adventures";
+import Equipment from "./Equipment/Equipment";
 
 const CharacterPage = () => {
   const [
@@ -19,12 +20,12 @@ const CharacterPage = () => {
   ] = useContext(CharactersContext);
 
   useEffect(() => {
-    renderRightSide();
+    renderCharacter();
   }, []);
 
   const [rightSide, setRightSide] = useState("");
 
-  const renderRightSide = () => {
+  const renderCharacter = () => {
     setRightSide(
       <CharacterCollection>
         <CharacterAttributes></CharacterAttributes>
@@ -40,17 +41,25 @@ const CharacterPage = () => {
     );
   };
 
+  const renderEquipment = () => {
+    setRightSide(
+      <CharacterCollection>
+        <Equipment></Equipment>
+      </CharacterCollection>
+    );
+  };
+
 
   return (
     <div className="character-page">
       <div className="big-container">
         <div className="grid-container" id="left-container">
-          <div onClick={renderRightSide} className="panel">
+          <div onClick={renderCharacter} className="panel">
             {" "}
             Character
           </div>
           <div className="panel"> Inventory</div>
-          <div className="panel"> Equipment</div>
+          <div className="panel" onClick={renderEquipment}> Equipment</div>
           <div className="panel"> Skills</div>
           <div className="panel" onClick={renderAdventures}>
             {" "}

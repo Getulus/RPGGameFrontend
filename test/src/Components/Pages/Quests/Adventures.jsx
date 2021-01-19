@@ -13,6 +13,7 @@ import lionsHighlandImg from "../../../Img/lionshighland.jpeg";
 import ogresLandImg from "../../../Img/ogresland.png";
 import spiderCaveImg from "../../../Img/spidercave.jpeg";
 import towerOfSufferingImg from "../../../Img/towerofsuffering.jpeg";
+import axios from "axios";
 
 const Adventures = () => {
   const [
@@ -22,12 +23,29 @@ const Adventures = () => {
     setCurrentMonster,
   ] = useContext(CharactersContext);
 
+  const setAdventure = (name) => {
+    axios
+      .post(`http://localhost:8762/charondor/adventure/set-adventure`, {
+        name: name,
+      })
+      .then(() => {
+        axios
+          .get("http://localhost:8762/charondor/action/combat")
+          .then((res) => {})
+      });
+  };
+
   return (
     <div className="adventure-container">
       <div className="adventure-panel">
         <p className="adv-title">Misty Forest 1-3</p>
         <Link to="/combat">
-          <img src={forestImg} alt="adv-img" className="adv-img"></img>
+          <img
+            onClick={() => setAdventure("Misty Forest")}
+            src={forestImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
 
