@@ -28,7 +28,7 @@ const Adventures = () => {
       .post(`http://localhost:8762/charondor/adventure/set-adventure`, {
         name: name,
       })
-      .then(() => {
+      .then((res) => {
         axios
           .get("http://localhost:8762/charondor/action/combat")
           .then((res) => {})

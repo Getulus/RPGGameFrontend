@@ -33,16 +33,14 @@
   color: goldenrod;
   border-color: goldenrod;
   border: solid 1px;
+  margin: auto;
+  width: 100%;
 }
 
 .panel:hover{
   cursor: pointer;
 }
 
-#left-container > div{
-  margin: auto;
-  width: 100%;
-}
 
 #left-container{
   margin: auto;

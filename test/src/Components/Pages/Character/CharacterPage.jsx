@@ -10,6 +10,7 @@ import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
 import Adventures from "../Quests/Adventures";
 import Equipment from "./Equipment/Equipment";
+import { EquipmentCollection ,EquipmentContext } from "./Equipment/EquipmnetContext";
 
 const CharacterPage = () => {
   const [
@@ -44,11 +45,12 @@ const CharacterPage = () => {
   const renderEquipment = () => {
     setRightSide(
       <CharacterCollection>
-        <Equipment></Equipment>
+        <EquipmentCollection>
+          <Equipment></Equipment>
+        </EquipmentCollection>
       </CharacterCollection>
     );
   };
-
 
   return (
     <div className="character-page">
@@ -58,8 +60,11 @@ const CharacterPage = () => {
             {" "}
             Character
           </div>
-          <div className="panel"> Inventory</div>
-          <div className="panel" onClick={renderEquipment}> Equipment</div>
+          <div className="panel"> Shop</div>
+          <div className="panel" onClick={renderEquipment}>
+            {" "}
+            Equipment
+          </div>
           <div className="panel"> Skills</div>
           <div className="panel" onClick={renderAdventures}>
             {" "}

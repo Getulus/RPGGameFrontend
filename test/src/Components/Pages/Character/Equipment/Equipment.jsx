@@ -5,48 +5,85 @@ import React, {
   useContext,
   useEffect,
 } from "react";
-import { CharactersContext } from "../../Character/CharacterContext";
+import { EquipmentContext } from "./EquipmnetContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-
-
 const Equipment = () => {
-  const [leftHand, setLeftHand] = useState("");
+  const [leftHand, setLeftHand] = useState("/images/left-hand.png");
+  const [rightHand, setRigthHand] = useState("/images/right-hand.png");
+  const [head, setHead] = useState("/images/head.png");
+  const [chest, setChest] = useState("/images/chest.png");
+  const [hands, setHands] = useState("images/hand.png");
+  const [legs, setLegs] = useState("images/legs.png");
+  const [foot, setFoot] = useState("images/foot.png");
+
+  const [
+    inventory,
+    setInventory,
+    updateInventory,
+    setUpdateInventory,
+  ] = useContext(EquipmentContext);
 
   const renderEquipment = () => {
     return (
       <div className="equipment-container">
         <div id="left-hand" className="slot">
-          <img src="https://gbf.wiki/images/thumb/1/15/Weapon_b_1030004300.png/462px-Weapon_b_1030004300.png" alt=""></img>
+          <img src={leftHand} alt=""></img>
         </div>
         <div id="head" className="slot">
-            <img src="https://i.pinimg.com/originals/73/5a/20/735a20b5d4b1794a798f93b8a575f674.png"></img>
+          <img src={head}></img>
         </div>
         <div id="right-hand" className="slot">
-            <img src="https://i.pinimg.com/originals/18/93/c2/1893c271a8833f4e7036707935e7f30f.png"></img>
+          <img src={rightHand}></img>
         </div>
         <div id="chest" className="slot">
-            <img src="https://i.pinimg.com/originals/aa/9e/7c/aa9e7c0e31b863f17fd5d5d6d4367a96.png"></img>
+          <img src={chest}></img>
         </div>
-        <div id="hand" className="slot">
-            <img src="https://gbf.wiki/images/thumb/c/ca/Weapon_b_1030606400.png/462px-Weapon_b_1030606400.png"></img>
+        <div id="hands" className="slot">
+          <img src={hands}></img>
         </div>
         <div id="legs" className="slot">
-            <img src="https://mcishop.azureedge.net/mciassets/w_4_0076666_gawain-greaves_550.png"></img>
+          <img src={legs}></img>
         </div>
         <div id="foot" className="slot">
-            <img src="https://www.tosbase.com/content/img/icons/items/icon_item_boots_knight.png"></img>
+          <img src={foot}></img>
         </div>
+      </div>
+    );
+  };
+
+  const equipItem = (id, itemSlot) => {
+    if (id > 0) {
+      axios
+        .post(`http://localhost:8762/charondor/items/equip`, {
+          id: id, slot:itemSlot,
+        })
+        .then(()=>{
+          setUpdateInventory(updateInventory + 1)
+          inventory.map((item) => renderInventory(item))
+        });
+    }
+  };
+
+  const renderInventory = (item) => {
+    let itemId = item.itemID;
+    let itemSlot = item.slot;
+    console.log(itemId) 
+    return (
+      <div className="inventory-slot">
+        <img alt="" src={item.image} onClick={()=>equipItem(itemId, itemSlot)}></img>
       </div>
     );
   };
 
   return (
     <div className="equipment-main-container">
+      <p className="title">Equipment</p>
+      <p className="title">Inventory</p>
       {renderEquipment()}
       <div className="inventory-container">
-        <div className="inventory-slot"></div>
+        {inventory.map((item) => renderInventory(item))}
       </div>
     </div>
   );

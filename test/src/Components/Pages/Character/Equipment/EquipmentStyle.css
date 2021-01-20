@@ -1,15 +1,15 @@
 .equipment-main-container{
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
     border: 1px goldenrod solid;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 .equipment-container{
     
     margin: auto;
-    width: 400px;
+    width: 530px;
     height: 500px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -17,23 +17,29 @@
 }
 
 .inventory-container{
-    width: 800px;
-    height: 100px;
+    width: 530px;
+    height: 500px;
     display: grid;
     border: solid goldenrod 1px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    margin: auto;
+    text-align: center;
+    
 }
 
 .slot{
     margin: auto;
     border: goldenrod solid 1px;
-    width: 100px
+    width: 100px;
+
 }
 
 #head{
     height: 100px;
 }
 
-#hand{
+#hands{
     height: 100px;
 }
 
@@ -67,3 +73,16 @@
     grid-row-end: 3;
 }
 
+.inventory-slot{
+    width: 90px;
+    height: 90px;
+    border: dashed goldenrod 1px;
+    color: goldenrod;
+    margin: auto;
+}
+
+.title{
+    color: goldenrod;
+    font-size: x-large;
+    font-family: fantasy;
+}
