@@ -77,6 +77,9 @@ const Equipment = () => {
         case "Hands":
           setLeftHand(item.image);
           break;
+          case "chest":
+            setChest(item.image);
+            break;
         default:
           break;
       }

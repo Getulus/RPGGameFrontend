@@ -3,7 +3,7 @@ import "./CombatPageStyle.css";
 import { CharactersContext } from "../Character/CharacterContext";
 import { CombatLogContext } from "./CombatLogContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CombatPlayerStats from "./CombatPlayerStats";
 import CombatMonsterStats from "./CombatMonsterStats";
 import CombatLog from "./CombatLog";
@@ -24,13 +24,29 @@ const CombatPage = () => {
     CombatLogContext
   );
 
+  const history = useHistory();
+
+  useEffect(() => {
+    setLogUpdate(logUpdate +1)
+  }, [])
+
   const startCombat = () => {
     axios.get(`http://localhost:8762/charondor/action/combat`).then(() => {
       setUpdate(update + 1);
       setLogUpdate(logUpdate + 1);
-      console.log(update, logUpdate);
     });
+
+    if (currentPlayer.currentHealth <= 0) {
+      regenerate()
+    }
+
   };
+
+
+  const regenerate = () => {
+    history.push('/character');
+    axios.get("http://localhost:8762/charondor/character/regenerate").then((res) =>{})
+  }
 
   return (
     <div className="combat-page">
@@ -51,12 +67,10 @@ const CombatPage = () => {
           <CombatLog></CombatLog>
         </div>
       </div>
-      <button className="button" onClick={startCombat}>
+      <button className="button" onClick={()=>startCombat()}>
         Start Combat
       </button>
-      <Link to="/character">
-        <button className="button">End Combat</button>
-      </Link>
+        <button className="button" onClick={()=>regenerate()}>End Combat</button>
     </div>
   );
 };

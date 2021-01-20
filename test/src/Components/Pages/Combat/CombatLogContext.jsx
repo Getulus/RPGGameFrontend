@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const CombatLogContext = createContext();
 
-export const CombatCollection = (props) => {
+export const CombatLogCollection = (props) => {
   const [combatLog, setCombatLog] = useState([{name:""}]);
   const [logUpdate, setLogUpdate] = useState(1);
 

@@ -18,6 +18,7 @@ import {
   EquippmentCollection,
   EquippmentContext,
 } from "./Equipment/EquippmentContext";
+import { CombatLogCollection } from "../Combat/CombatLogContext";
 
 const CharacterPage = () => {
   const [
@@ -44,7 +45,9 @@ const CharacterPage = () => {
   const renderAdventures = () => {
     setRightSide(
       <CharacterCollection>
+        <CombatLogCollection>
         <Adventures></Adventures>
+        </CombatLogCollection>
       </CharacterCollection>
     );
   };

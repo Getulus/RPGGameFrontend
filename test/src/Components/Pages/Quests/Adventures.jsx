@@ -5,6 +5,8 @@ import React, {
   useEffect,
 } from "react";
 import { CharactersContext } from "../Character/CharacterContext";
+import { CombatLogContext } from "../Combat/CombatLogContext";
+
 import "./AdventuresStyle.css";
 import { Link } from "react-router-dom";
 import forestImg from "../../../Img/forest.jpg";
@@ -21,18 +23,20 @@ const Adventures = () => {
     setCurrentPlayer,
     currentMonster,
     setCurrentMonster,
+    update,
+    setUpdate
   ] = useContext(CharactersContext);
+
+  const [
+    logUpdate,
+    setLogUpdate
+  ] = useContext(CombatLogContext);
 
   const setAdventure = (name) => {
     axios
       .post(`http://localhost:8762/charondor/adventure/set-adventure`, {
         name: name,
-      })
-      .then((res) => {
-        axios
-          .get("http://localhost:8762/charondor/action/combat")
-          .then((res) => {})
-      });
+      }).then((res) => {})
   };
 
   return (
