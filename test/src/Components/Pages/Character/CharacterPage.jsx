@@ -10,7 +10,14 @@ import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
 import Adventures from "../Quests/Adventures";
 import Equipment from "./Equipment/Equipment";
-import { EquipmentCollection ,EquipmentContext } from "./Equipment/EquipmnetContext";
+import {
+  InventoryCollection,
+  InventoryContext,
+} from "./Equipment/InventoryContext";
+import {
+  EquippmentCollection,
+  EquippmentContext,
+} from "./Equipment/EquippmentContext";
 
 const CharacterPage = () => {
   const [
@@ -45,9 +52,11 @@ const CharacterPage = () => {
   const renderEquipment = () => {
     setRightSide(
       <CharacterCollection>
-        <EquipmentCollection>
-          <Equipment></Equipment>
-        </EquipmentCollection>
+        <InventoryCollection>
+          <EquippmentCollection>
+            <Equipment></Equipment>
+          </EquippmentCollection>
+        </InventoryCollection>
       </CharacterCollection>
     );
   };

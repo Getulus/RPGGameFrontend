@@ -1,11 +1,12 @@
 import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
 
-export const EquipmentContext = createContext();
+export const InventoryContext = createContext();
 
-export const EquipmentCollection = (props) => {
+export const InventoryCollection = (props) => {
   const [inventory, setInventory] = useState([]);
   const [updateInventory, setUpdateInventory] = useState(1);
+
 
   useEffect(() => {
     axios.get("http://localhost:8762/charondor/items/inventory-items").then((res)=> {
@@ -16,10 +17,10 @@ export const EquipmentCollection = (props) => {
 
 
   return (
-    <EquipmentContext.Provider
+    <InventoryContext.Provider
       value={[inventory, setInventory, updateInventory, setUpdateInventory]}
     >
       {props.children}
-    </EquipmentContext.Provider>
+    </InventoryContext.Provider>
   );
 };
