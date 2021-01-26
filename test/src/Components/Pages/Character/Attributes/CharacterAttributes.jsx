@@ -1,8 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CharactersContext } from "../CharacterContext";
-import image from "../../../../Img/warrior.png";
 import warriorIcon from "../../../../Img/warrioricon.jpg";
 import "../Attributes/CharacterAttributesStyle.css";
+
 
 const CharacterAttributes = () => {
   const [
@@ -10,12 +10,19 @@ const CharacterAttributes = () => {
     setCurrentPlayer,
     currentMonster,
     setCurrentMonster,
+    update,
+    setUpdate
   ] = useContext(CharactersContext);
+
+
+  useEffect(()=>{
+    setUpdate(update + 1)
+  },[])
 
   return (
     <div className="detail-panel">
       <div className="character-picture">
-        <img src={image} id="character-img" alt="character-image" />
+        <img src="/images/druid.png" id="character-img" alt="character-image" />
       </div>
       <div className="details">
         <div id="general" className="atr-panel">

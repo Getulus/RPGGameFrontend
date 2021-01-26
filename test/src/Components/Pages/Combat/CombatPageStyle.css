@@ -30,7 +30,7 @@
 }
 
 .image{
-    height: 250px;
+    height: 315px;
     width: 200px;
 }
 
@@ -61,4 +61,9 @@
   .log-blokk{
       margin-bottom: 20px;
       border-bottom: goldenrod dashed 1px;
+  }
+
+  .character-name{
+      color: goldenrod;
+      font-size: large;
   }

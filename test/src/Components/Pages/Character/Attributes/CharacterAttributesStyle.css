@@ -5,7 +5,7 @@
 }
 
 .character-picture {
-  align-content: center;
+
   display: grid;
   width: 400px;
   height: 600px;
@@ -21,9 +21,9 @@
 }
 
 #character-img {
-  width: 100%;
-  height: 93%;
-}
+    height: 590px;
+    margin-left: 38px;
+  }
 
 #type-icon {
   width: 100%;

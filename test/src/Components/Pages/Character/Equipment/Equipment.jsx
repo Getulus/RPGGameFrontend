@@ -9,6 +9,7 @@ import { InventoryContext } from "./InventoryContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { EquippmentContext } from "./EquippmentContext";
+import {CharacterContext, CharactersContext} from "../CharacterContext"
 
 const Equipment = () => {
   const [
@@ -17,6 +18,9 @@ const Equipment = () => {
     updateInventory,
     setUpdateInventory,
   ] = useContext(InventoryContext);
+
+  const [update, setUpdate] = useContext(CharactersContext)
+
 
   const [
     leftHand,
@@ -80,6 +84,9 @@ const Equipment = () => {
           case "chest":
             setChest(item.image);
             break;
+          case "foot":
+            setFoot(item.image);
+            break;
         default:
           break;
       }
@@ -101,6 +108,7 @@ const Equipment = () => {
             });
           setUpdateInventory(updateInventory + 1);
           inventory.map((item) => renderInventory(item));
+          
         });
     }
   };

@@ -26,6 +26,8 @@ const CharacterPage = () => {
     setCurrentPlayer,
     currentMonster,
     setCurrentMonster,
+    update,
+    setUpdate
   ] = useContext(CharactersContext);
 
   useEffect(() => {
@@ -35,6 +37,7 @@ const CharacterPage = () => {
   const [rightSide, setRightSide] = useState("");
 
   const renderCharacter = () => {
+    
     setRightSide(
       <CharacterCollection>
         <CharacterAttributes></CharacterAttributes>
@@ -82,6 +85,7 @@ const CharacterPage = () => {
             {" "}
             Adventures
           </div>
+          <div className="panel"> Tavern</div>
         </div>
         <div id="right-container" className="grid-container">
           {rightSide}

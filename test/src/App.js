@@ -6,6 +6,7 @@ import {CharacterCollection} from "./Components/Pages/Character/CharacterContext
 import {CombatLogCollection} from "./Components/Pages/Combat/CombatLogContext"
 import HomePage from './Components/Pages/Home/Home';
 import CombatPage from './Components/Pages/Combat/CombatPage';
+import ChooseClass from './Components/Pages/Creation/ChooseClass';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       <Route exact path='/character/attributes' component={CharacterAttributes}></Route>
       <Route exact path="/" component={HomePage}></Route>
       <Route exact path="/combat" component={CombatPage}></Route>
+      <Route exact path="/character-choose" component={ChooseClass}></Route>
+      <div className="footer"><p style={{margin:"auto"}}>Copyright © Getulus Games</p></div>
+      
       </CombatLogCollection>
     </CharacterCollection>
     </Router>

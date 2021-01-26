@@ -27,8 +27,8 @@ const CombatPage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    setLogUpdate(logUpdate +1)
-  }, [])
+    setLogUpdate(logUpdate + 1);
+  }, []);
 
   const startCombat = () => {
     axios.get(`http://localhost:8762/charondor/action/combat`).then(() => {
@@ -37,25 +37,27 @@ const CombatPage = () => {
     });
 
     if (currentPlayer.currentHealth <= 0) {
-      regenerate()
+      regenerate();
     }
-
   };
 
-
   const regenerate = () => {
-    history.push('/character');
-    axios.get("http://localhost:8762/charondor/character/regenerate").then((res) =>{})
-  }
+    history.push("/character");
+    axios
+      .get("http://localhost:8762/charondor/character/regenerate")
+      .then((res) => {});
+  };
 
   return (
     <div className="combat-page">
       <div className="combat-container">
         <div id="player-image" className="combat-panel image">
-          <img src={warrior}></img>
+          <p className="character-name">{currentPlayer.name}</p>
+          <img src={currentPlayer.image}></img>
         </div>
         <div id="monster-image" className="combat-panel image">
-          <img src={werewolf}></img>
+          <p className="character-name">{currentMonster.name}</p>
+          <img src={currentMonster.image}></img>
         </div>
         <div id="player-stats" className="combat-panel info">
           <CombatPlayerStats></CombatPlayerStats>
@@ -67,10 +69,12 @@ const CombatPage = () => {
           <CombatLog></CombatLog>
         </div>
       </div>
-      <button className="button" onClick={()=>startCombat()}>
+      <button className="button" onClick={() => startCombat()}>
         Start Combat
       </button>
-        <button className="button" onClick={()=>regenerate()}>End Combat</button>
+      <button className="button" onClick={() => regenerate()}>
+        End Combat
+      </button>
     </div>
   );
 };
