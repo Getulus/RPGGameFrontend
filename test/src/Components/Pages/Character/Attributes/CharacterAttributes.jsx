@@ -22,7 +22,7 @@ const CharacterAttributes = () => {
   return (
     <div className="detail-panel">
       <div className="character-picture">
-        <img src="/images/druid.png" id="character-img" alt="character-image" />
+        <img src={currentPlayer.image} id="character-img" alt="character-image" />
       </div>
       <div className="details">
         <div id="general" className="atr-panel">
@@ -57,7 +57,7 @@ const CharacterAttributes = () => {
         </div>
 
         <div className="atr-panel">
-          <img id="type-icon" alt="type" src={warriorIcon}></img>
+          <img id="type-icon" alt="type" src={currentPlayer.classSymbol}></img>
         </div>
       </div>
     </div>

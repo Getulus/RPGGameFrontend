@@ -120,3 +120,8 @@
   .flip-card-back {
     transform: rotateY(180deg);
   }
+
+
+  #choose-title{
+      margin-bottom: 10px;
+  }
