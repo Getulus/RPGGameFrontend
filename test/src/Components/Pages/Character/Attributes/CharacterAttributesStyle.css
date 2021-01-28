@@ -36,6 +36,7 @@
   text-align: center;
   height: 280px;
   width: 250px;
+  border-radius: 5px;
 }
 
 .detail-title {

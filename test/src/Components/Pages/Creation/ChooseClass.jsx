@@ -10,7 +10,11 @@ import "./ChooseClassStyle.css";
 import axios from "axios";
 
 const ChooseClass = () => {
+  const [modalDisplay, setMondalDisplay] = useState("none");
+  const [playerName, setPlayername] = useState("Player Name");
+
   const chooseClass = (type) => {
+    setMondalDisplay("block");
     axios
       .post(`http://localhost:8762/charondor/character/choose-character`, {
         type: type,
@@ -18,39 +22,57 @@ const ChooseClass = () => {
       .then((res) => {});
   };
 
+  const giveName = (e) => {
+    setPlayername(e.target.value);
+  };
+
+  const setCurrentPlayerName = () => {
+    axios
+      .post(`http://localhost:8762/charondor/character/change-name`, {
+        name: playerName,
+      })
+      .then((res) => {});
+  };
+
   return (
     <div className="choose-main">
       <div className="page-overlay">
+        <div id="myModal" className="modal" style={{ display: modalDisplay }}>
+          <div className="modal-content">
+            <span onClick={() => setMondalDisplay("none")} className="close">
+              &times;
+            </span>
+            <input value={playerName} onChange={giveName}></input>
+            <Link to="/character">
+              <button className="saveButton" onClick={setCurrentPlayerName}>Create</button>
+            </Link>
+          </div>
+        </div>
+
         <div id="choose-title" className="title">
           Choose a character
         </div>
         <div className="class-container">
-          <Link to="/character">
-            <div className="flip-card" onClick={() => chooseClass("Warrior")}>
-              <div className="flip-card-inner">
-                <div id="warrior" className="class-card flip-card-front"></div>
-                <div
-                  id="warrior-sign"
-                  className="class-card flip-card-back"
-                ></div>
-              </div>
+          <div className="flip-card" onClick={() => chooseClass("Warrior")}>
+            <div className="flip-card-inner">
+              <div id="warrior" className="class-card flip-card-front"></div>
+              <div
+                id="warrior-sign"
+                className="class-card flip-card-back"
+              ></div>
             </div>
-          </Link>
+          </div>
 
-          <Link to="/character">
             <div className="flip-card" onClick={() => chooseClass("Druid")}>
               <div className="flip-card-inner">
                 <div id="druid" className="class-card flip-card-front"></div>
-
                 <div
                   id="druid-sign"
                   className="class-card flip-card-back"
                 ></div>
               </div>
             </div>
-          </Link>
 
-          <Link to="/character">
             <div className="flip-card" onClick={() => chooseClass("Wizard")}>
               <div className="flip-card-inner">
                 <div id="wizard" className="class-card flip-card-front"></div>
@@ -60,9 +82,7 @@ const ChooseClass = () => {
                 ></div>
               </div>
             </div>
-          </Link>
 
-          <Link to="/character">
             <div
               className="flip-card"
               onClick={() => chooseClass("Shadow Striker")}
@@ -75,9 +95,7 @@ const ChooseClass = () => {
                 ></div>
               </div>
             </div>
-          </Link>
 
-          <Link to="/character">
             <div
               className="flip-card"
               onClick={() => chooseClass("Necromancer")}
@@ -93,9 +111,7 @@ const ChooseClass = () => {
                 ></div>
               </div>
             </div>
-          </Link>
 
-          <Link to="/character">
             <div
               className="flip-card"
               onClick={() => chooseClass("Trap Master")}
@@ -111,7 +127,7 @@ const ChooseClass = () => {
                 ></div>
               </div>
             </div>
-          </Link>
+
         </div>
       </div>
     </div>

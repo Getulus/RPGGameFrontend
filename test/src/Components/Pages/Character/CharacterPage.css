@@ -1,10 +1,7 @@
-
-
 .character-page {
   min-height: 70vh;
   align-content: center;
   font-family: fantasy;
-
 }
 
 .big-container {
@@ -13,7 +10,7 @@
   grid-template-columns: auto auto;
   grid-gap: 10px;
   padding: 10px;
-  
+
   border-color: goldenrod;
   height: 80%;
 }
@@ -30,24 +27,28 @@
   text-align: center;
   padding: 20px 10px;
   font-size: x-large;
-  color: goldenrod;
-  border-color: goldenrod;
-  border: solid 1px;
+
   margin: auto;
   width: 100%;
+  border-radius: 5px;
+  color: goldenrod;
+  background-color: black;
+  border-color: goldenrod;
+  border: solid 1px;
 }
 
-.panel:hover{
+.panel:hover {
   cursor: pointer;
+  color: black;
+  background-color: goldenrod;
+  border-color: goldenrod;
+  border: solid 1px;
 }
 
-
-#left-container{
-  
+#left-container {
   height: 600px;
 }
 
-#right-container{
-  
+#right-container {
   height: 80%;
 }

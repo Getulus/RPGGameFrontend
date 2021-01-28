@@ -42,7 +42,7 @@
 
 .button {
     background-color: goldenrod; /* Green */
-    border: none;
+    border: black 1px solid;
     color: black;
     padding: 15px 32px;
     text-align: center;
@@ -53,6 +53,13 @@
     margin: 30px;
     cursor: pointer;
   }
+
+  .button:hover{
+    background-color: black;
+    border: goldenrod 1px solid;
+    color: goldenrod;
+  }
+  
 
   .stat{
       margin: 1px;

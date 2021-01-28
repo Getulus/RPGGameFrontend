@@ -1,9 +1,8 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {  useContext } from "react";
 import {
-  CharacterCollection,
   CharactersContext,
 } from "../Character/CharacterContext";
-import axios from "axios";
+
 
 
 const CombatPlayerStats = () => {

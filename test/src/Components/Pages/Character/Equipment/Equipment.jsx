@@ -9,7 +9,7 @@ import { InventoryContext } from "./InventoryContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { EquippmentContext } from "./EquippmentContext";
-import {CharacterContext, CharactersContext} from "../CharacterContext"
+import { CharacterContext, CharactersContext } from "../CharacterContext";
 
 const Equipment = () => {
   const [
@@ -19,8 +19,7 @@ const Equipment = () => {
     setUpdateInventory,
   ] = useContext(InventoryContext);
 
-  const [update, setUpdate] = useContext(CharactersContext)
-
+  const [update, setUpdate] = useContext(CharactersContext);
 
   const [
     leftHand,
@@ -42,26 +41,54 @@ const Equipment = () => {
   const renderEquipment = () => {
     return (
       <div className="equipment-container">
-        <div id="left-hand" className="slot">
-          <img src={leftHand} alt=""></img>
+        <div id="left-hand" className="slot tooltip">
+          <div className="tooltiptext">
+            {Object.keys(leftHand).map((stat) => sortItemStat(stat, leftHand))}
+          </div>
+          <img src={leftHand.image} alt=""></img>
         </div>
-        <div id="head" className="slot">
-          <img src={head}></img>
+
+        <div id="head" className="slot tooltip">
+          <img src={head.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(head).map((stat) => sortItemStat(stat, head))}
+          </div>
         </div>
-        <div id="right-hand" className="slot">
-          <img src={rightHand}></img>
+
+        <div id="right-hand" className="slot tooltip">
+          <img src={rightHand.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(rightHand).map((stat) =>
+              sortItemStat(stat, rightHand)
+            )}
+          </div>
         </div>
-        <div id="chest" className="slot">
-          <img src={chest}></img>
+        <div id="chest" className="slot tooltip">
+          <img src={chest.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(chest).map((stat) => sortItemStat(stat, chest))}
+          </div>
         </div>
-        <div id="hands" className="slot">
-          <img src={hands}></img>
+
+        <div id="hands" className="slot tooltip">
+          <img src={hands.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(hands).map((stat) => sortItemStat(stat, hands))}
+          </div>
         </div>
-        <div id="legs" className="slot">
-          <img src={legs}></img>
+
+        <div id="legs" className="slot tooltip">
+          <img src={legs.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(legs).map((stat) => sortItemStat(stat, legs))}
+          </div>
         </div>
-        <div id="foot" className="slot">
-          <img src={foot}></img>
+
+        <div id="foot" className="slot tooltip">
+          <img src={foot.image}></img>
+          <div className="tooltiptext">
+            {Object.keys(foot).map((stat) => sortItemStat(stat, foot))}
+          </div>
         </div>
       </div>
     );
@@ -69,24 +96,24 @@ const Equipment = () => {
 
   useEffect(() => {
     axios
-    .get("http://localhost:8762/charondor/items/equipped-items")
-    .then((res) => {
-      sortEquippment(res.data);
-    });
-  }, [])
+      .get("http://localhost:8762/charondor/items/equipped-items")
+      .then((res) => {
+        sortEquippment(res.data);
+      });
+  }, []);
 
   const sortEquippment = (equippment) => {
     for (let item of equippment) {
       switch (item.slot) {
         case "Hands":
-          setLeftHand(item.image);
+          setLeftHand(item);
           break;
-          case "chest":
-            setChest(item.image);
-            break;
-          case "foot":
-            setFoot(item.image);
-            break;
+        case "chest":
+          setChest(item);
+          break;
+        case "foot":
+          setFoot(item);
+          break;
         default:
           break;
       }
@@ -108,7 +135,6 @@ const Equipment = () => {
             });
           setUpdateInventory(updateInventory + 1);
           inventory.map((item) => renderInventory(item));
-          
         });
     }
   };
@@ -116,16 +142,48 @@ const Equipment = () => {
   const renderInventory = (item) => {
     let itemId = item.itemID;
     let itemSlot = item.slot;
-    console.log(itemId);
-    return (
-      <div className="inventory-slot">
-        <img
-          alt=""
-          src={item.image}
-          onClick={() => equipItem(itemId, itemSlot)}
-        ></img>
-      </div>
-    );
+    console.log(item);
+    if (item.name == "empty slot") {
+      return (
+        <div className="inventory-slot">
+          <img alt="" src={item.image}></img>
+        </div>
+      );
+    } else {
+      return (
+        <div className="inventory-slot tooltip">
+          <div className="tooltiptext">
+            {Object.keys(item).map((stat) => sortItemStat(stat, item))}
+          </div>
+          <img
+            alt=""
+            src={item.image}
+            onClick={() => equipItem(itemId, itemSlot)}
+          ></img>
+        </div>
+      );
+    }
+  };
+
+  const sortItemStat = (stat, item) => {
+    let currentStat = item[stat];
+    if (
+      currentStat != 0 &&
+      stat != "image" &&
+      stat != "itemID" &&
+      stat != "dropChance" &&
+      stat != "rarity" &&
+      stat != "equipped"
+    ) {
+      if (stat != "name" && stat != "slot") {
+        return (
+          <div>
+            {stat}: {currentStat}
+          </div>
+        );
+      }
+      return <div style={{ marginBottom: "5px" }}>{currentStat}</div>;
+    }
   };
 
   return (

@@ -43,85 +43,135 @@
 }
 
 #striker-sign {
-    background-image: url("../../../Img/striker-sign.jpg");
-  }
-
+  background-image: url("../../../Img/striker-sign.jpg");
+}
 
 #druid {
   background-image: url("../../../Img/druid.png");
 }
 #druid-sign {
-    background-image: url("../../../Img/druid-sign.jpg");
-  }
-
+  background-image: url("../../../Img/druid-sign.jpg");
+}
 
 #wizard {
   background-image: url("../../../Img/wizard.png");
 }
 
 #wizard-sign {
-    background-image: url("../../../Img/wizard-sign.jpg");
-  }
+  background-image: url("../../../Img/wizard-sign.jpg");
+}
 
 #warrior {
   background-image: url("../../../Img/warrior.jpeg");
 }
 
 #warrior-sign {
-    background-image: url("../../../Img/warrioricon.jpg");
-  }
+  background-image: url("../../../Img/warrioricon.jpg");
+}
 
 #trap-master {
   background-image: url("../../../Img/trap-master.jpeg");
 }
 
 #trap-master-sign {
-    background-image: url("../../../Img/trap-sign.jpg");
-  }
+  background-image: url("../../../Img/trap-sign.jpg");
+}
 
 #necromancer {
   background-image: url("../../../Img/necromancer.jpeg");
 }
 
 #necromancer-sign {
-    background-image: url("../../../Img/necromancer-sign.jpg");
-  }
+  background-image: url("../../../Img/necromancer-sign.jpg");
+}
 
-  .flip-card{
-    height: 300px;
-    width: 230px;
-  }
+.flip-card {
+  height: 300px;
+  width: 230px;
+}
 
-
-  /* This container is needed to position the front and back side */
+/* This container is needed to position the front and back side */
 .flip-card-inner {
-    position: relative;
+  position: relative;
 
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  /* Do an horizontal flip when you move the mouse over the flip box container */
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  /* Position the front and back side */
-  .flip-card-front, .flip-card-back {
-    position: absolute;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
 
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
-  
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
 
-  /* Style the back side */
-  .flip-card-back {
-    transform: rotateY(180deg);
-  }
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+#choose-title {
+  margin-bottom: 10px;
+}
+
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 10px;
+  border: 1px solid goldenrod;
+  width: 35%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: goldenrod;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.saveButton {
+  margin: 15px;
+  cursor: pointer;
+  font-size: large;
+  padding: 4px;
+  background-color: goldenrod;
+  border: goldenrod solid 1px;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+}
 
 
-  #choose-title{
-      margin-bottom: 10px;
-  }
+.saveButton:hover{
+  background-color: black;
+  border: goldenrod solid 1px;
+  color: goldenrod;
+}
