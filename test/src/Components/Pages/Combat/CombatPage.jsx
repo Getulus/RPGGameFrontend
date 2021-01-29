@@ -27,7 +27,13 @@ const CombatPage = () => {
   const [hideButton, setHideButton] = useState("inline");
   const [playerHealthBar, setPLayerHealthBar] = useState("100%");
   const [monsterHealthBar, setMonsterHealthBar] = useState("100%");
-  //const [roundCurrentPlayerHealth, setRoundCurrentPlayerHealth] = useState(currentPlayer.maxHealth)
+
+  //Damage dealing
+  const [playerDamage, setPLayerDamage] = useState("");
+  const [monsterDamage, setMonsterDamage] = useState("");
+  const [playerDamageHide, setPlayerDamageHide] = useState("none");
+  const [monsterDamageHide, setMonsterDamageHide] = useState("none");
+
   const history = useHistory();
 
   useEffect(() => {
@@ -35,8 +41,8 @@ const CombatPage = () => {
   }, []);
 
   useEffect(() => {
-    moveBarAnimation()
-    setMonsterHealthBar("100%")
+    moveBarAnimation();
+    setMonsterHealthBar("100%");
   }, [combatLog]);
 
   const calculateMonsterHealthBar = (currentHealth) => {
@@ -60,40 +66,47 @@ const CombatPage = () => {
   };
 
   const moveBarAnimation = () => {
-    
     var round = 0;
     var id = setInterval(frame, 800);
+
     function frame() {
       if (round >= combatLog.length) {
-        setHideButton("inline")
+        setPlayerDamageHide("none");
+        setMonsterDamageHide("none");
+        setHideButton("inline");
         clearInterval(id);
       } else {
-        console.log(combatLog[round])
+        console.log(combatLog[round]);
         if (combatLog[round]["name"] == "Player") {
-            calculateMonsterHealthBar(combatLog[round]["enemyRemainingHealth"])
+          setPlayerDamageHide("inline");
+          setMonsterDamageHide("none");
+          setPLayerDamage(combatLog[round]["damageDealt"]);
+          calculateMonsterHealthBar(combatLog[round]["enemyRemainingHealth"]);
         } else {
-            calculatePlayerHealthBar(combatLog[round]["enemyRemainingHealth"])
+          setPlayerDamageHide("none");
+          setMonsterDamageHide("inline");
+          setMonsterDamage(combatLog[round]["damageDealt"]);
+          calculatePlayerHealthBar(combatLog[round]["enemyRemainingHealth"]);
         }
-        round++
+        round++;
       }
     }
   };
 
   const startCombat = () => {
-    setHideButton("none")
-    //calculatePlayerHealthBar();
+    setHideButton("none");
     setHideCombatPanel("grid");
     setStartAdventure("Continue");
 
     if (currentPlayer.currentHealth <= 0) {
-      //calculatePlayerHealthBar();
       setHideButton("none");
       regenerate();
     } else {
       axios.get(`http://localhost:8762/charondor/action/combat`).then(() => {
         setLogUpdate(logUpdate + 1);
         setUpdate(update + 1);
-    })}
+      });
+    }
   };
 
   const regenerate = () => {
@@ -118,6 +131,15 @@ const CombatPage = () => {
         <div id="player-image" className="combat-panel image">
           <p className="character-name">{currentPlayer.name}</p>
           <img src={currentPlayer.image}></img>
+          <div className="textContainer" style={{display:monsterDamageHide}}>
+            <img
+              src={"/images/damage.png"}
+              className="damage"
+              style={{ display: "inline" }}
+            ></img>
+            <div className="dmgNum">{monsterDamage}</div>
+          </div>
+
           <div class="w3-black">
             <div
               class="w3-red w3-center"
@@ -130,6 +152,14 @@ const CombatPage = () => {
 
         <div id="monster-image" className="combat-panel image">
           <p className="character-name">{currentMonster.name}</p>
+          <div className="textContainer" style={{display:playerDamageHide}}>
+            <img
+              src={"/images/damage.png"}
+              className="damage"
+              style={{ display: "inline" }}
+            ></img>
+            <div className="dmgNum">{playerDamage}</div>
+          </div>
           <img src={currentMonster.image}></img>
           <div class="w3-black">
             <div

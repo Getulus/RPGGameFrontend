@@ -37,6 +37,7 @@
 }
 
 .image {
+  position: relative;
   height: 340px;
   width: 240px;
 }
@@ -78,4 +79,20 @@
 .character-name {
   color: goldenrod;
   font-size: large;
+}
+
+.textContainer {
+  font-size: xx-large;
+  position: absolute;
+  text-align: center;
+  color: white;
+  transform: translate(-2%, 24%);
+}
+
+.dmgNum {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-37%, 25%);
+  font-size: x-large;
 }
