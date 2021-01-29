@@ -7,6 +7,8 @@ import { Link, useHistory } from "react-router-dom";
 import CombatPlayerStats from "./CombatPlayerStats";
 import CombatMonsterStats from "./CombatMonsterStats";
 import CombatLog from "./CombatLog";
+import useSound from 'use-sound';
+import dmgSound from "../../../sounds/damage.mp3"
 
 const CombatPage = () => {
   const [
@@ -33,6 +35,10 @@ const CombatPage = () => {
   const [monsterDamage, setMonsterDamage] = useState("");
   const [playerDamageHide, setPlayerDamageHide] = useState("none");
   const [monsterDamageHide, setMonsterDamageHide] = useState("none");
+
+  //Sound
+
+  const [play] = useSound(dmgSound)
 
   const history = useHistory();
 
@@ -82,11 +88,13 @@ const CombatPage = () => {
           setMonsterDamageHide("none");
           setPLayerDamage(combatLog[round]["damageDealt"]);
           calculateMonsterHealthBar(combatLog[round]["enemyRemainingHealth"]);
+          play()
         } else {
           setPlayerDamageHide("none");
           setMonsterDamageHide("inline");
           setMonsterDamage(combatLog[round]["damageDealt"]);
           calculatePlayerHealthBar(combatLog[round]["enemyRemainingHealth"]);
+          play()
         }
         round++;
       }
