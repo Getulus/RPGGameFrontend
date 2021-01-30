@@ -49,12 +49,14 @@ const CombatPage = () => {
   useEffect(() => {
     moveBarAnimation();
     setMonsterHealthBar("100%");
-  }, [combatLog]);
+  }, [currentMonster]);
 
-  const calculateMonsterHealthBar = (currentHealth) => {
+  const calculateMonsterHealthBar = (currentHealth, round) => {
     if (currentHealth <= 0) {
       setMonsterHealthBar("0%");
     } else {
+      console.log(currentMonster.maxHealth)
+      console.log(Math.round((currentHealth / currentMonster.maxHealth) * 100) + "%")
       setMonsterHealthBar(
         Math.round((currentHealth / currentMonster.maxHealth) * 100) + "%"
       );
@@ -81,13 +83,14 @@ const CombatPage = () => {
         setMonsterDamageHide("none");
         setHideButton("inline");
         clearInterval(id);
+        
       } else {
         console.log(combatLog[round]);
         if (combatLog[round]["name"] == "Player") {
           setPlayerDamageHide("inline");
           setMonsterDamageHide("none");
           setPLayerDamage(combatLog[round]["damageDealt"]);
-          calculateMonsterHealthBar(combatLog[round]["enemyRemainingHealth"]);
+          calculateMonsterHealthBar(combatLog[round]["enemyRemainingHealth"], round);
           play()
         } else {
           setPlayerDamageHide("none");

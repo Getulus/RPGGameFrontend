@@ -24,19 +24,17 @@ const Adventures = () => {
     currentMonster,
     setCurrentMonster,
     update,
-    setUpdate
+    setUpdate,
   ] = useContext(CharactersContext);
 
-  const [
-    logUpdate,
-    setLogUpdate
-  ] = useContext(CombatLogContext);
+  const [logUpdate, setLogUpdate] = useContext(CombatLogContext);
 
   const setAdventure = (name) => {
     axios
       .post(`http://localhost:8762/charondor/adventure/set-adventure`, {
         name: name,
-      }).then((res) => {})
+      })
+      .then((res) => {});
   };
 
   return (
@@ -55,27 +53,62 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Spider Cave 2-4</p>
-        <img src={spiderCaveImg} alt="adv-img" className="adv-img"></img>
+        <Link to="/combat">
+        <img
+          onClick={() => setAdventure("Spider Cave")}
+          src={spiderCaveImg}
+          alt="adv-img"
+          className="adv-img"
+        ></img>
+        </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Land of Ogres 3-6</p>
-        <img src={ogresLandImg} alt="adv-img" className="adv-img"></img>
+        <Link to="/combat">
+        <img
+          onClick={() => setAdventure("Land of Ogres")}
+          src={ogresLandImg}
+          alt="adv-img"
+          className="adv-img"
+        ></img>
+        </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Lion's Highland 5-8</p>
-        <img src={lionsHighlandImg} alt="adv-img" className="adv-img"></img>
+        <Link to="/combat">
+        <img
+          onClick={() => setAdventure("Lion's Highland")}
+          src={lionsHighlandImg}
+          alt="adv-img"
+          className="adv-img"
+        ></img>
+        </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Tower of Suffering 7-9</p>
-        <img src={towerOfSufferingImg} alt="adv-img" className="adv-img"></img>
+        <Link to="/combat">
+        <img
+          onClick={() => setAdventure("Tower of Suffering")}
+          src={towerOfSufferingImg}
+          alt="adv-img"
+          className="adv-img"
+        ></img>
+        </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Devil's Pit 10</p>
-        <img src={devilsPitImg} alt="adv-img" className="adv-img"></img>
+        <Link to="/combat">
+        <img
+          onClick={() => setAdventure("Devil's Pit")}
+          src={devilsPitImg}
+          alt="adv-img"
+          className="adv-img"
+        ></img>
+        </Link>
       </div>
     </div>
   );
