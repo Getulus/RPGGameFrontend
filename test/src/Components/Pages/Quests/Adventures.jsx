@@ -54,60 +54,60 @@ const Adventures = () => {
       <div className="adventure-panel">
         <p className="adv-title">Spider Cave 2-4</p>
         <Link to="/combat">
-        <img
-          onClick={() => setAdventure("Spider Cave")}
-          src={spiderCaveImg}
-          alt="adv-img"
-          className="adv-img"
-        ></img>
+          <img
+            onClick={() => setAdventure("Spider Cave")}
+            src={spiderCaveImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Land of Ogres 3-6</p>
         <Link to="/combat">
-        <img
-          onClick={() => setAdventure("Land of Ogres")}
-          src={ogresLandImg}
-          alt="adv-img"
-          className="adv-img"
-        ></img>
+          <img
+            onClick={() => setAdventure("Land of Ogres")}
+            src={ogresLandImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Lion's Highland 5-8</p>
         <Link to="/combat">
-        <img
-          onClick={() => setAdventure("Lion's Highland")}
-          src={lionsHighlandImg}
-          alt="adv-img"
-          className="adv-img"
-        ></img>
+          <img
+            onClick={() => setAdventure("Lion's Highland")}
+            src={lionsHighlandImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Tower of Suffering 7-9</p>
         <Link to="/combat">
-        <img
-          onClick={() => setAdventure("Tower of Suffering")}
-          src={towerOfSufferingImg}
-          alt="adv-img"
-          className="adv-img"
-        ></img>
+          <img
+            onClick={() => setAdventure("Tower of Suffering")}
+            src={towerOfSufferingImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
 
       <div className="adventure-panel">
         <p className="adv-title">Devil's Pit 10</p>
         <Link to="/combat">
-        <img
-          onClick={() => setAdventure("Devil's Pit")}
-          src={devilsPitImg}
-          alt="adv-img"
-          className="adv-img"
-        ></img>
+          <img
+            onClick={() => setAdventure("Devil's Pit")}
+            src={devilsPitImg}
+            alt="adv-img"
+            className="adv-img"
+          ></img>
         </Link>
       </div>
     </div>

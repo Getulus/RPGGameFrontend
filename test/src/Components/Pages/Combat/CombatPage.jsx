@@ -134,6 +134,7 @@ const CombatPage = () => {
       .then((res) => {
         setLogUpdate(logUpdate + 1);
       });
+      
   };
 
   return (

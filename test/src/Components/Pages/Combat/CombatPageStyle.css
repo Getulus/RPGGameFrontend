@@ -96,3 +96,17 @@
   transform: translate(-37%, 25%);
   font-size: x-large;
 }
+
+.loot-container{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin: auto;
+  gap: 10px;
+}
+
+.loot-item{
+  width: 100px;
+  height: 100px;
+  border: solid goldenrod 1px;
+  margin-left: 10px;
+}

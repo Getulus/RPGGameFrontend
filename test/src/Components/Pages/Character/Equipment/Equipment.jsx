@@ -32,8 +32,8 @@ const Equipment = () => {
     setChest,
     hands,
     setHands,
-    legs,
-    setLegs,
+    neck,
+    setNeck,
     foot,
     setFoot,
   ] = useContext(EquippmentContext);
@@ -63,10 +63,11 @@ const Equipment = () => {
             )}
           </div>
         </div>
-        <div id="chest" className="slot tooltip">
-          <img src={chest.image}></img>
+
+        <div id="neck" className="slot tooltip">
+          <img src={neck.image}></img>
           <div className="tooltiptext">
-            {Object.keys(chest).map((stat) => sortItemStat(stat, chest))}
+            {Object.keys(neck).map((stat) => sortItemStat(stat, neck))}
           </div>
         </div>
 
@@ -77,10 +78,10 @@ const Equipment = () => {
           </div>
         </div>
 
-        <div id="legs" className="slot tooltip">
-          <img src={legs.image}></img>
+        <div id="chest" className="slot tooltip">
+          <img src={chest.image}></img>
           <div className="tooltiptext">
-            {Object.keys(legs).map((stat) => sortItemStat(stat, legs))}
+            {Object.keys(chest).map((stat) => sortItemStat(stat, chest))}
           </div>
         </div>
 
@@ -105,7 +106,7 @@ const Equipment = () => {
   const sortEquippment = (equippment) => {
     for (let item of equippment) {
       switch (item.slot) {
-        case "Hands":
+        case "leftHand":
           setLeftHand(item);
           break;
         case "chest":
@@ -113,6 +114,18 @@ const Equipment = () => {
           break;
         case "foot":
           setFoot(item);
+          break;
+        case "rightHand":
+          setRigthHand(item);
+          break;
+        case "neck":
+          setNeck(item);
+          break;
+        case "head":
+          setHead(item);
+          break;
+        case "gloves":
+          setHands(item);
           break;
         default:
           break;

@@ -4,11 +4,12 @@
   border: 1px goldenrod solid;
   text-align: center;
   gap: 20px;
+  width: 1080px;
 }
 
 .equipment-container {
-  margin: auto;
-  width: 530px;
+  margin: 20px;
+  width: 450px;
   height: 500px;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -22,7 +23,7 @@
   border: solid goldenrod 1px;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  margin: auto;
+  margin: 20px;
   text-align: center;
 }
 
@@ -48,12 +49,12 @@
   height: 130px;
 }
 
-#legs {
-  height: 150px;
+#neck {
+  height: 100px;
 }
 
 #left-hand {
-  height: 180px;
+  height: 160px;
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 1;
@@ -61,7 +62,7 @@
 }
 
 #right-hand {
-  height: 180px;
+  height: 160px;
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 1;
@@ -95,7 +96,7 @@
   color: goldenrod;
   text-align: center;
   top: -5px;
-  right: 105%; 
+  right: 105%;
   border-radius: 6px;
   border: goldenrod 2px solid;
 
