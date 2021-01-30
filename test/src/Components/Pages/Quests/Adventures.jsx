@@ -40,7 +40,7 @@ const Adventures = () => {
   return (
     <div className="adventure-container">
       <div className="adventure-panel">
-        <p className="adv-title">Misty Forest 1-3</p>
+        <p className="adv-title">Misty Forest 1-2</p>
         <Link to="/combat">
           <img
             onClick={() => setAdventure("Misty Forest")}
@@ -52,7 +52,7 @@ const Adventures = () => {
       </div>
 
       <div className="adventure-panel">
-        <p className="adv-title">Spider Cave 2-4</p>
+        <p className="adv-title">Spider Cave 3-4</p>
         <Link to="/combat">
           <img
             onClick={() => setAdventure("Spider Cave")}
@@ -64,7 +64,7 @@ const Adventures = () => {
       </div>
 
       <div className="adventure-panel">
-        <p className="adv-title">Land of Ogres 3-6</p>
+        <p className="adv-title">Land of Ogres 4-6</p>
         <Link to="/combat">
           <img
             onClick={() => setAdventure("Land of Ogres")}

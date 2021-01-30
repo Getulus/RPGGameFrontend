@@ -34,6 +34,7 @@
   height: 600px;
   width: 400px;
   overflow: scroll;
+  
 }
 
 .image {
@@ -99,14 +100,23 @@
 
 .loot-container{
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 25vh 16vh;
   margin: auto;
   gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .loot-item{
   width: 100px;
   height: 100px;
   border: solid goldenrod 1px;
-  margin-left: 10px;
+  margin-left: 40px;
+  
+}
+
+
+.loot{
+  border-bottom: goldenrod 1px solid;
+  margin-bottom: 20px;
 }
