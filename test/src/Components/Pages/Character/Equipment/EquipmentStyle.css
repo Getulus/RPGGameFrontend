@@ -1,0 +1,112 @@
+.equipment-main-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  border: 1px goldenrod solid;
+  text-align: center;
+  gap: 20px;
+  width: 1080px;
+}
+
+.equipment-container {
+  margin: 20px;
+  width: 450px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  border: 1px goldenrod solid;
+}
+
+.inventory-container {
+  width: 530px;
+  height: 500px;
+  display: grid;
+  border: solid goldenrod 1px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  margin: 20px;
+  text-align: center;
+}
+
+.slot {
+  margin: auto;
+  border: goldenrod solid 1px;
+  width: 100px;
+}
+
+#head {
+  height: 100px;
+}
+
+#hands {
+  height: 100px;
+}
+
+#foot {
+  height: 100px;
+}
+
+#chest {
+  height: 130px;
+}
+
+#neck {
+  height: 100px;
+}
+
+#left-hand {
+  height: 160px;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+#right-hand {
+  height: 160px;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.inventory-slot {
+  width: 90px;
+  height: 90px;
+  border: dashed goldenrod 1px;
+  color: goldenrod;
+  margin: auto;
+}
+
+.title {
+  color: goldenrod;
+  font-size: x-large;
+  font-family: fantasy;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 170px;
+  background-color: black;
+  color: goldenrod;
+  text-align: center;
+  top: -5px;
+  right: 105%;
+  border-radius: 6px;
+  border: goldenrod 2px solid;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

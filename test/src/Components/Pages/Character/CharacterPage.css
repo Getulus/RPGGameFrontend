@@ -1,55 +1,54 @@
-
-
 .character-page {
-  min-height: 70vh;
+  min-height: 70vh  !important;
   align-content: center;
   font-family: fantasy;
-
 }
 
 .big-container {
-  margin: auto;
-  display: grid;
-  grid-template-columns: auto auto;
+  margin: auto !important;
+  display: grid !important;
+  grid-template-columns: auto auto !important;
   grid-gap: 10px;
   padding: 10px;
-  border: solid 2px;
-  border-color: gold;
-  height: 80%;
+
+  border-color: goldenrod;
+  height: 80% !important;
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
-  padding: 10px;
-  border-color: gold;
+  display: grid !important;
+  grid-template-columns: auto !important;
+  grid-gap: 10px !important;
+  padding: 10px !important;
+  border-color: goldenrod;
 }
 
 .panel {
-  text-align: center;
-  padding: 20px 10px;
-  font-size: x-large;
-  color: gold;
-  border-color: gold;
+  box-sizing: content-box  !important;
+  text-align: center !important;
+  padding: 20px 10px !important;
+  font-size: x-large !important;
+  margin: auto  !important;
+  width: 160px !important;
+  border-radius: 5px !important;
+  color: goldenrod;
+  background-color: black;
+  border-color: goldenrod;
   border: solid 1px;
 }
 
-.panel:hover{
+.panel:hover {
   cursor: pointer;
+  color: black;
+  background-color: goldenrod;
+  border-color: goldenrod;
+  border: solid 1px;
 }
 
-#left-container > div{
-  margin: auto;
-  width: 100%;
+#left-container {
+  height: 600px  !important;
 }
 
-#left-container{
-  margin: auto;
-  height: 80%;
-}
-
-#right-container{
-  margin: auto;
-  height: 80%;
+#right-container {
+  height: 80% !important;
 }
