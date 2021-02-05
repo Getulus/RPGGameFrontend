@@ -10,8 +10,8 @@
   }
   
   .start-game {
-    float: left;
-    margin-left: 20vh;
-    margin-top: 1vh;
-    font-size: 40px;
+    margin-top: 23px  !important;
+    float: left  !important;
+    margin-left: 20vh  !important;
+    font-size: 40px !important;
   }

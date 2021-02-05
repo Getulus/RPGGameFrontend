@@ -1,9 +1,24 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {
+  BrowserRouter as Router,
+  useState,
+  useContext,
+  useEffect,
+} from "react";
 import "./CharacterPage.css";
 import { CharacterCollection, CharactersContext } from "./CharacterContext";
 import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
-
+import Adventures from "../Quests/Adventures";
+import Equipment from "./Equipment/Equipment";
+import {
+  InventoryCollection,
+  InventoryContext,
+} from "./Equipment/InventoryContext";
+import {
+  EquippmentCollection,
+  EquippmentContext,
+} from "./Equipment/EquippmentContext";
+import { CombatLogCollection } from "../Combat/CombatLogContext";
 
 const CharacterPage = () => {
   const [
@@ -11,39 +26,69 @@ const CharacterPage = () => {
     setCurrentPlayer,
     currentMonster,
     setCurrentMonster,
+    update,
+    setUpdate
   ] = useContext(CharactersContext);
 
+  useEffect(() => {
+    renderCharacter();
+  }, []);
 
-  useEffect(()=>{
-    renderRightSide();
-  },[])
-  
+  const [rightSide, setRightSide] = useState("");
 
-  const renderRightSide = () => {
-    ReactDOM.render(
+  const renderCharacter = () => {
+    
+    setRightSide(
       <CharacterCollection>
-          <CharacterAttributes></CharacterAttributes>
-      </CharacterCollection>,
-      document.getElementById("right-container")
+        <CharacterAttributes></CharacterAttributes>
+      </CharacterCollection>
     );
   };
 
+  const renderAdventures = () => {
+    setRightSide(
+      <CharacterCollection>
+        <CombatLogCollection>
+        <Adventures></Adventures>
+        </CombatLogCollection>
+      </CharacterCollection>
+    );
+  };
+
+  const renderEquipment = () => {
+    setRightSide(
+      <CharacterCollection>
+        <InventoryCollection>
+          <EquippmentCollection>
+            <Equipment></Equipment>
+          </EquippmentCollection>
+        </InventoryCollection>
+      </CharacterCollection>
+    );
+  };
 
   return (
     <div className="character-page">
       <div className="big-container">
         <div className="grid-container" id="left-container">
-          <div onClick={renderRightSide} className="panel">
+          <div onClick={renderCharacter} className="panel">
             {" "}
             Character
           </div>
-          <div className="panel"> Inventory</div>
-          <div className="panel"> Equipment</div>
+          <div className="panel"> Shop</div>
+          <div className="panel" onClick={renderEquipment}>
+            {" "}
+            Equipment
+          </div>
           <div className="panel"> Skills</div>
-          <div className="panel"> Quests</div>
+          <div className="panel" onClick={renderAdventures}>
+            {" "}
+            Adventures
+          </div>
+          <div className="panel"> Tavern</div>
         </div>
         <div id="right-container" className="grid-container">
-
+          {rightSide}
         </div>
       </div>
     </div>

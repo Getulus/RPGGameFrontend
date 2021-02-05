@@ -9,7 +9,7 @@ const HomePage = () => {
         <div className="main-page">
         <header className="main-header">
         </header>
-        <Link style={{textDecoration : "none", color: "goldenrod"}} to="/character">
+        <Link style={{textDecoration : "none", color: "goldenrod"}} to="/character-choose">
         <p className="start-game">Start Game</p>
         </Link>
       </div>

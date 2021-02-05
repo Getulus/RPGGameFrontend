@@ -1,0 +1,122 @@
+@import url("https://www.w3schools.com/w3css/4/w3.css");
+
+.combat-page {
+  text-align: center;
+}
+
+.combat-container {
+  grid-template-columns: auto auto auto;
+  display: grid;
+  border: goldenrod 1px solid;
+  gap: 10px;
+}
+
+.combat-panel {
+  display: grid;
+  margin: auto;
+  border: solid goldenrod 1px;
+  color: goldenrod;
+  text-align: center;
+}
+
+#player-stats,
+#monster-stats {
+  height: 180px !important;
+  width: 240px !important;
+  font-size: medium;
+}
+
+#battle-log {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  height: 600px;
+  width: 400px;
+  overflow: scroll;
+  
+}
+
+.image {
+  position: relative;
+  height: 340px;
+  width: 240px;
+}
+
+.info {
+  width: 300px;
+  height: 200px;
+}
+
+.button {
+  background-color: goldenrod; /* Green */
+  border: black 1px solid;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  border-radius: 12px;
+  margin: 30px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: black;
+  border: goldenrod 1px solid;
+  color: goldenrod;
+}
+
+.stat {
+  margin: 1px;
+}
+
+.log-blokk {
+  margin-bottom: 20px;
+  border-bottom: goldenrod dashed 1px;
+}
+
+.character-name {
+  color: goldenrod;
+  font-size: large;
+}
+
+.textContainer {
+  font-size: xx-large;
+  position: absolute;
+  text-align: center;
+  color: white;
+  transform: translate(-2%, 24%);
+}
+
+.dmgNum {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-37%, 25%);
+  font-size: x-large;
+}
+
+.loot-container{
+  display: grid;
+  grid-template-columns: 25vh 16vh;
+  margin: auto;
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.loot-item{
+  width: 100px;
+  height: 100px;
+  border: solid goldenrod 1px;
+  margin-left: 40px;
+  
+}
+
+
+.loot{
+  border-bottom: goldenrod 1px solid;
+  margin-bottom: 20px;
+}

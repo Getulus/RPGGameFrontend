@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CharactersContext } from "../CharacterContext";
-import image from "../../../../Img/warrior.png";
+import warriorIcon from "../../../../Img/warrioricon.jpg";
 import "../Attributes/CharacterAttributesStyle.css";
+
 
 const CharacterAttributes = () => {
   const [
@@ -9,17 +10,25 @@ const CharacterAttributes = () => {
     setCurrentPlayer,
     currentMonster,
     setCurrentMonster,
+    update,
+    setUpdate
   ] = useContext(CharactersContext);
+
+
+  useEffect(()=>{
+    setUpdate(update + 1)
+  },[])
 
   return (
     <div className="detail-panel">
       <div className="character-picture">
-        <img src={image} alt="character-image" />
+        <img src={currentPlayer.image} id="character-img" alt="character-image" />
       </div>
-      <div className="details" >
+      <div className="details">
         <div id="general" className="atr-panel">
           <p className="detail-title">Generals:</p>
           <p>Name: {currentPlayer.name}</p>
+          <p>Level: {currentPlayer.level}</p>
           <p>Type: {currentPlayer.type}</p>
           <p>Experience: {currentPlayer.experiencePoints}</p>
           <p>
@@ -45,6 +54,10 @@ const CharacterAttributes = () => {
           <p>Critical chance: {currentPlayer.criticalChance} %</p>
           <p>Armor: {currentPlayer.armor}</p>
           <p>Magic Resistance: {currentPlayer.magicResistance}</p>
+        </div>
+
+        <div className="atr-panel">
+          <img id="type-icon" alt="type" src={currentPlayer.classSymbol}></img>
         </div>
       </div>
     </div>
