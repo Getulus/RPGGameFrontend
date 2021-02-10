@@ -1,0 +1,42 @@
+.quest-page-main {
+  color: goldenrod;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: auto auto auto;
+}
+
+.quest-container {
+  width: 305px;
+  display: grid;
+  grid-template-columns: auto;
+  border: goldenrod 1px solid;
+  text-align: center;
+    overflow: scroll;
+    height: 600px;
+}
+
+
+
+.quest {
+  margin: 15px;
+  width: 260px;
+  height: 200px;
+  border: goldenrod 1px solid;
+}
+
+.tavern-image {
+  height: 600px;
+}
+
+.line{
+   margin: 5px;
+}
+
+
+.quest-title{
+    height: 20px;
+}
+
+#quest-button{
+    margin: 5px;
+}

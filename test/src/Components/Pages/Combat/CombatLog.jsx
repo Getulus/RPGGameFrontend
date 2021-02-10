@@ -20,11 +20,14 @@ const CombatLog = () => {
   ] = useContext(CharactersContext);
 
   useEffect(() => {
+    checkIfHasBasicLoot();
+  }, [currentMonster]);
+
+  useEffect(() => {
     axios
       .get("http://localhost:8762/charondor/items/get-loot")
       .then((res) => {
         setLoot(res.data);
-        checkIfHasBasicLoot();
       })
       .then(() => {
         axios.post("http://localhost:8762/charondor/items/clear-loot");

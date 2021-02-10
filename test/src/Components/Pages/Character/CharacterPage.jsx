@@ -8,8 +8,9 @@ import "./CharacterPage.css";
 import { CharacterCollection, CharactersContext } from "./CharacterContext";
 import CharacterAttributes from "./Attributes/CharacterAttributes";
 import ReactDOM from "react-dom";
-import Adventures from "../Quests/Adventures";
+import Adventures from "../Adventures/Adventures";
 import Equipment from "./Equipment/Equipment";
+import QuestPage from "../Quests/QuestPage";
 import {
   InventoryCollection,
   InventoryContext,
@@ -19,6 +20,7 @@ import {
   EquippmentContext,
 } from "./Equipment/EquippmentContext";
 import { CombatLogCollection } from "../Combat/CombatLogContext";
+import { QuestCollection } from "../Quests/QuestContext";
 
 const CharacterPage = () => {
   const [
@@ -27,7 +29,7 @@ const CharacterPage = () => {
     currentMonster,
     setCurrentMonster,
     update,
-    setUpdate
+    setUpdate,
   ] = useContext(CharactersContext);
 
   useEffect(() => {
@@ -37,7 +39,6 @@ const CharacterPage = () => {
   const [rightSide, setRightSide] = useState("");
 
   const renderCharacter = () => {
-    
     setRightSide(
       <CharacterCollection>
         <CharacterAttributes></CharacterAttributes>
@@ -49,7 +50,7 @@ const CharacterPage = () => {
     setRightSide(
       <CharacterCollection>
         <CombatLogCollection>
-        <Adventures></Adventures>
+          <Adventures></Adventures>
         </CombatLogCollection>
       </CharacterCollection>
     );
@@ -63,6 +64,16 @@ const CharacterPage = () => {
             <Equipment></Equipment>
           </EquippmentCollection>
         </InventoryCollection>
+      </CharacterCollection>
+    );
+  };
+
+  const renderQuests = () => {
+    setRightSide(
+      <CharacterCollection>
+        <QuestCollection>
+          <QuestPage></QuestPage>
+        </QuestCollection>
       </CharacterCollection>
     );
   };
@@ -85,7 +96,10 @@ const CharacterPage = () => {
             {" "}
             Adventures
           </div>
-          <div className="panel"> Tavern</div>
+          <div className="panel" onClick={renderQuests}>
+            {" "}
+            Tavern
+          </div>
         </div>
         <div id="right-container" className="grid-container">
           {rightSide}
