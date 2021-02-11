@@ -21,6 +21,7 @@ import {
 } from "./Equipment/EquippmentContext";
 import { CombatLogCollection } from "../Combat/CombatLogContext";
 import { QuestCollection } from "../Quests/QuestContext";
+import Header from "./Header/Header";
 
 const CharacterPage = () => {
   const [
@@ -41,6 +42,7 @@ const CharacterPage = () => {
   const renderCharacter = () => {
     setRightSide(
       <CharacterCollection>
+        <Header></Header>
         <CharacterAttributes></CharacterAttributes>
       </CharacterCollection>
     );
@@ -50,6 +52,7 @@ const CharacterPage = () => {
     setRightSide(
       <CharacterCollection>
         <CombatLogCollection>
+        <Header></Header>
           <Adventures></Adventures>
         </CombatLogCollection>
       </CharacterCollection>
@@ -61,6 +64,7 @@ const CharacterPage = () => {
       <CharacterCollection>
         <InventoryCollection>
           <EquippmentCollection>
+          <Header></Header>
             <Equipment></Equipment>
           </EquippmentCollection>
         </InventoryCollection>
@@ -72,6 +76,7 @@ const CharacterPage = () => {
     setRightSide(
       <CharacterCollection>
         <QuestCollection>
+        <Header></Header>
           <QuestPage></QuestPage>
         </QuestCollection>
       </CharacterCollection>
@@ -80,6 +85,7 @@ const CharacterPage = () => {
 
   return (
     <div className="character-page">
+      
       <div className="big-container">
         <div className="grid-container" id="left-container">
           <div onClick={renderCharacter} className="panel">

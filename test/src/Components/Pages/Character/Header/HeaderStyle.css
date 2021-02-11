@@ -1,0 +1,10 @@
+.header{
+    color: goldenrod;
+    padding: 20px;
+    text-align: center;
+    border-bottom: goldenrod 2px solid;
+}
+
+.header-info{
+    margin: 20px;
+}

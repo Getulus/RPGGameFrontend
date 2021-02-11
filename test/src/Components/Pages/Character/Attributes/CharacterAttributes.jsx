@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { CharactersContext } from "../CharacterContext";
-import warriorIcon from "../../../../Img/warrioricon.jpg";
 import "../Attributes/CharacterAttributesStyle.css";
 import axios from "axios";
 
@@ -28,7 +27,6 @@ const CharacterAttributes = () => {
       })
       .then((res) => {
         setUpdate(update + 1);
-        console.log(res);
       });
   };
 
@@ -43,7 +41,7 @@ const CharacterAttributes = () => {
       </div>
       <div className="details">
         <div id="general" className="atr-panel">
-          <div className="detail-title">Generals:</div>
+          <div className="detail-title attr-line">Generals:</div>
           <div className="attr-line">Name: {currentPlayer.name}</div>
           <div className="attr-line">Level: {currentPlayer.level}</div>
           <div className="attr-line">Type: {currentPlayer.type}</div>
@@ -69,7 +67,7 @@ const CharacterAttributes = () => {
         </div>
 
         <div id="attributes" className="atr-panel">
-          <p className="detail-title">Attributes:</p>
+          <div className="detail-title attr-line">Attributes:</div>
           <div className="attr-line">
             Health Points: {currentPlayer.maxHealth}
           </div>
@@ -139,7 +137,7 @@ const CharacterAttributes = () => {
         </div>
 
         <div id="combat-stat" className="atr-panel">
-          <p className="detail-title">Combat Stats:</p>
+          <div className="detail-title attr-line">Combat Stats:</div>
           <div className="attr-line">
             <span>Attack Value: {currentPlayer.attackValue}</span>
             <span>

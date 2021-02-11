@@ -8,6 +8,7 @@ import HomePage from './Components/Pages/Home/Home';
 import CombatPage from './Components/Pages/Combat/CombatPage';
 import ChooseClass from './Components/Pages/Creation/ChooseClass';
 import { QuestCollection } from './Components/Pages/Quests/QuestContext';
+import Header from './Components/Pages/Character/Header/Header';
 
 function App() {
   return (
@@ -15,12 +16,12 @@ function App() {
       <CharacterCollection>
         <CombatLogCollection>
           <QuestCollection>  
-      <Route exact path='/character' component={CharacterPage}></Route>
-      <Route exact path='/character/attributes' component={CharacterAttributes}></Route>
-      <Route exact path="/" component={HomePage}></Route>
-      <Route exact path="/combat" component={CombatPage}></Route>
-      <Route exact path="/character-choose" component={ChooseClass}></Route>
-      <div className="footer"><p style={{margin:"auto"}}>Copyright © Getulus Games</p></div>
+            
+            <Route exact path='/character' component={CharacterPage}></Route>
+            <Route exact path="/" component={HomePage}></Route>
+            <Route exact path="/combat" component={CombatPage}></Route>
+            <Route exact path="/character-choose" component={ChooseClass}></Route>
+            <div className="footer"><p style={{margin:"auto"}}>Copyright © Getulus Games</p></div>
         </QuestCollection>
       </CombatLogCollection>
     </CharacterCollection>

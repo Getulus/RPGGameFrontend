@@ -4,7 +4,7 @@ import axios from "axios";
 export const CharactersContext = createContext();
 
 export const CharacterCollection = (props) => {
-  const [currentPlayer, setCurrentPlayer] = useState([]);
+  const [currentPlayer, setCurrentPlayer] = useState({items:[], quests:[]});
   const [currentMonster, setCurrentMonster] = useState([]);
   const [update, setUpdate] = useState(1);
   const [playerAttributes, setPlayerAttributes] = useState([]);

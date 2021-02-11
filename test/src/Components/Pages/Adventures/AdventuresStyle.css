@@ -1,7 +1,7 @@
 .adventure-container{
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 10px;
+    gap: 20px;
 }
 
 .adventure-panel{
@@ -11,7 +11,7 @@
     text-align: center;
     border: goldenrod 1px solid; 
     height: 295px;
-    width: 355px;
+    width: 365px;
     overflow: hidden;
 }
 
