@@ -22,6 +22,7 @@ import {
 import { CombatLogCollection } from "../Combat/CombatLogContext";
 import { QuestCollection } from "../Quests/QuestContext";
 import Header from "./Header/Header";
+import Shop from "./Shop/Shop";
 
 const CharacterPage = () => {
   const [
@@ -42,7 +43,9 @@ const CharacterPage = () => {
   const renderCharacter = () => {
     setRightSide(
       <CharacterCollection>
-        <Header></Header>
+        <InventoryCollection>
+          <Header></Header>
+        </InventoryCollection>
         <CharacterAttributes></CharacterAttributes>
       </CharacterCollection>
     );
@@ -52,7 +55,9 @@ const CharacterPage = () => {
     setRightSide(
       <CharacterCollection>
         <CombatLogCollection>
-        <Header></Header>
+          <InventoryCollection>
+            <Header></Header>
+          </InventoryCollection>
           <Adventures></Adventures>
         </CombatLogCollection>
       </CharacterCollection>
@@ -64,7 +69,7 @@ const CharacterPage = () => {
       <CharacterCollection>
         <InventoryCollection>
           <EquippmentCollection>
-          <Header></Header>
+            <Header></Header>
             <Equipment></Equipment>
           </EquippmentCollection>
         </InventoryCollection>
@@ -76,23 +81,38 @@ const CharacterPage = () => {
     setRightSide(
       <CharacterCollection>
         <QuestCollection>
-        <Header></Header>
+          <InventoryCollection>
+            <Header></Header>
+          </InventoryCollection>
           <QuestPage></QuestPage>
         </QuestCollection>
       </CharacterCollection>
     );
   };
 
+  const renderShop = () => {
+    setRightSide(
+      <CharacterCollection>
+        <InventoryCollection>
+          <Header></Header>
+          <Shop></Shop>
+        </InventoryCollection>
+      </CharacterCollection>
+    );
+  };
+
   return (
     <div className="character-page">
-      
       <div className="big-container">
         <div className="grid-container" id="left-container">
           <div onClick={renderCharacter} className="panel">
             {" "}
             Character
           </div>
-          <div className="panel"> Shop</div>
+          <div className="panel" onClick={renderShop}>
+            {" "}
+            Shop
+          </div>
           <div className="panel" onClick={renderEquipment}>
             {" "}
             Equipment
@@ -107,6 +127,7 @@ const CharacterPage = () => {
             Tavern
           </div>
         </div>
+
         <div id="right-container" className="grid-container">
           {rightSide}
         </div>

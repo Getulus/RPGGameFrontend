@@ -201,8 +201,8 @@ const Equipment = () => {
 
   return (
     <div className="equipment-main-container">
-      <p className="title">Equipment</p>
-      <p className="title">Inventory</p>
+      <div className="title">Equipment</div>
+      <div className="title">Inventory</div>
       {renderEquipment()}
       <div className="inventory-container">
         {inventory.map((item) => renderInventory(item))}

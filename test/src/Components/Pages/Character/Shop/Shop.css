@@ -1,0 +1,11 @@
+.shop-image{
+    height: 400px;
+    width: 550px;
+}
+
+.shop-goods{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    margin: 20px;
+}

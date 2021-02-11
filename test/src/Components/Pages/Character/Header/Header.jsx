@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { render } from "react-dom";
 import { CharactersContext } from "../CharacterContext";
 import "./HeaderStyle.css";
+import {InventoryContext} from "../Equipment/InventoryContext"
 
 const Header = () => {
 
@@ -15,6 +16,9 @@ const Header = () => {
     playerAttributes,
     setPlayerAttributes,
   ] = useContext(CharactersContext);
+
+
+  const [inventory, setInventory, updateInventory, setUpdateInventory] = useContext(InventoryContext)
 
 
   useEffect(()=>{
@@ -56,7 +60,7 @@ const Header = () => {
       </span>
 
       <span className="header-info">
-        <span>25 / {currentPlayer.items.length} </span>
+        <span>25 / {inventory.filter(item=> item.name != "empty slot").length} </span>
         <span>
           <img src="/images/inventory-slot.png" className="pictogram"></img>
         </span>
