@@ -25,6 +25,8 @@ const QuestPage = () => {
     setAvailableQuests,
     updateQuest,
     setUpdateQuest,
+    playerQuests,
+    setPlayerQuests,
   ] = useContext(QuestContext);
 
   const [hideCompleteButton, sethideCompleteButton] = useState("none");
@@ -35,7 +37,7 @@ const QuestPage = () => {
         questName: questName,
       })
       .then((res) => {
-        setUpdate(update + 1);
+        
         setUpdateQuest(updateQuest + 1);
       });
   };
@@ -63,7 +65,16 @@ const QuestPage = () => {
     );
   };
 
-  const completeQuest = (questname) => {};
+  const completeQuest = (questName) => {
+    axios
+      .post("http://localhost:8762/charondor/quest/complete", {
+        questName: questName,
+      })
+      .then((res) => {
+        setUpdate(update + 1);
+        setUpdateQuest(updateQuest + 1);
+      });
+  };
 
   const renderPlayerQuests = (quest) => {
     let hideButton = "none";
@@ -106,7 +117,7 @@ const QuestPage = () => {
       </div>
       <div className="player-quests quest-container">
         <p className="quest-title">Player's Quests</p>
-        {currentPlayer.quests.map((quest) => renderPlayerQuests(quest))}
+        {playerQuests.map((quest) => renderPlayerQuests(quest))}
       </div>
     </div>
   );
