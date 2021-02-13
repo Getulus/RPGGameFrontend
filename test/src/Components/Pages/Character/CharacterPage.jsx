@@ -23,6 +23,7 @@ import { CombatLogCollection } from "../Combat/CombatLogContext";
 import { QuestCollection } from "../Quests/QuestContext";
 import Header from "./Header/Header";
 import Shop from "./Shop/Shop";
+import { AttributeImageCollection } from "./Attributes/AttributeImagesContext";
 
 const CharacterPage = () => {
   const [
@@ -102,37 +103,39 @@ const CharacterPage = () => {
   };
 
   return (
-    <div className="character-page">
-      <div className="big-container">
-        <div className="grid-container" id="left-container">
-          <div onClick={renderCharacter} className="panel">
-            {" "}
-            Character
+    <AttributeImageCollection>
+      <div className="character-page">
+        <div className="big-container">
+          <div className="grid-container" id="left-container">
+            <div onClick={renderCharacter} className="panel">
+              {" "}
+              Character
+            </div>
+            <div className="panel" onClick={renderShop}>
+              {" "}
+              Shop
+            </div>
+            <div className="panel" onClick={renderEquipment}>
+              {" "}
+              Equipment
+            </div>
+            <div className="panel"> Skills</div>
+            <div className="panel" onClick={renderAdventures}>
+              {" "}
+              Adventures
+            </div>
+            <div className="panel" onClick={renderQuests}>
+              {" "}
+              Tavern
+            </div>
           </div>
-          <div className="panel" onClick={renderShop}>
-            {" "}
-            Shop
-          </div>
-          <div className="panel" onClick={renderEquipment}>
-            {" "}
-            Equipment
-          </div>
-          <div className="panel"> Skills</div>
-          <div className="panel" onClick={renderAdventures}>
-            {" "}
-            Adventures
-          </div>
-          <div className="panel" onClick={renderQuests}>
-            {" "}
-            Tavern
-          </div>
-        </div>
 
-        <div id="right-container" className="grid-container">
-          {rightSide}
+          <div id="right-container" className="grid-container">
+            {rightSide}
+          </div>
         </div>
       </div>
-    </div>
+    </AttributeImageCollection>
   );
 };
 

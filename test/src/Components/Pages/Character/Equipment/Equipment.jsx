@@ -9,9 +9,16 @@ import { InventoryContext } from "./InventoryContext";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { EquippmentContext } from "./EquippmentContext";
-import { CharacterContext, CharactersContext } from "../CharacterContext";
+import { CharactersContext } from "../CharacterContext";
+import { AttributeImageContext } from "../Attributes/AttributeImagesContext";
 
 const Equipment = () => {
+
+
+  const [attributeImages, setAttributeImages] = useContext(
+    AttributeImageContext
+  );
+
   const [
     inventory,
     setInventory,
@@ -186,16 +193,26 @@ const Equipment = () => {
       stat != "itemID" &&
       stat != "dropChance" &&
       stat != "rarity" &&
-      stat != "equipped"
+      stat != "equipped" &&
+      stat != "level"
     ) {
       if (stat != "name" && stat != "slot") {
         return (
-          <div>
-            {stat}: {currentStat}
+          <div style={{marginBottom:"5px"}}>
+            <span>
+              <img
+                alt=""
+                className="pictogram tooltip-attr-pic"
+                src={attributeImages[stat]}
+              ></img>
+            </span>
+            <span className="tooltip-attr-stat">
+              {stat}: {currentStat}{" "}
+            </span>
           </div>
         );
       }
-      return <div style={{ marginBottom: "5px" }}>{currentStat}</div>;
+      return <div style={{ marginBottom: "5px", textAlign:"center" }}>{currentStat}</div>;
     }
   };
 

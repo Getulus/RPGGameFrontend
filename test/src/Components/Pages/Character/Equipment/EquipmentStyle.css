@@ -92,14 +92,15 @@
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 170px;
+  width: max-content;
+  padding: 10px;
   background-color: black;
   color: goldenrod;
-  text-align: center;
-  top: -5px;
-  right: 105%;
+  right: 113%;
   border-radius: 6px;
   border: goldenrod 2px solid;
+  text-align: left;
+  
 
   /* Position the tooltip text - see examples below! */
   position: absolute;
