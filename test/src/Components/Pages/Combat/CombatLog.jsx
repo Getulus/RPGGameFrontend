@@ -2,8 +2,13 @@ import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { CombatLogContext } from "./CombatLogContext";
 import { CharactersContext } from "../Character/CharacterContext";
+import {AttributeImageContext} from "../Character/Attributes/AttributeImagesContext"
 
 const CombatLog = () => {
+  const [attributeImages, setAttributeImages] = useContext(
+    AttributeImageContext
+  );
+
   const [combatLog, setCombatLog, logUpdate, setLogUpdate] = useContext(
     CombatLogContext
   );
@@ -20,8 +25,9 @@ const CombatLog = () => {
   ] = useContext(CharactersContext);
 
   useEffect(() => {
+    
     checkIfHasBasicLoot();
-  }, [currentMonster]);
+  }, [combatLog]);
 
   useEffect(() => {
     axios
@@ -30,7 +36,7 @@ const CombatLog = () => {
         setLoot(res.data);
       })
       .then(() => {
-        axios.post("http://localhost:8762/charondor/items/clear-loot");
+        axios.post("http://localhost:8762/charondor/items/clear-loot").then((res)=>{});
       });
   }, [currentPlayer]);
 
@@ -85,16 +91,26 @@ const CombatLog = () => {
       stat != "itemID" &&
       stat != "dropChance" &&
       stat != "rarity" &&
-      stat != "equipped"
+      stat != "equipped" &&
+      stat != "level"
     ) {
       if (stat != "name" && stat != "slot") {
         return (
-          <div>
-            {stat}: {currentStat}
+          <div style={{marginBottom:"5px"}}>
+            <span>
+              <img
+                alt=""
+                className="pictogram tooltip-attr-pic"
+                src={attributeImages[stat]}
+              ></img>
+            </span>
+            <span className="tooltip-attr-stat">
+              {stat}: {currentStat}{" "}
+            </span>
           </div>
         );
       }
-      return <div style={{ marginBottom: "5px" }}>{currentStat}</div>;
+      return <div style={{ marginBottom: "5px", textAlign:"center"  }}>{currentStat}</div>;
     }
   };
 

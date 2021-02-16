@@ -1,0 +1,23 @@
+.skill-container {
+  display: grid;
+  color: goldenrod;
+  grid-template-columns: auto auto;
+  border: goldenrod 1px solid;
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+.skill {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  border: goldenrod 1px dotted;
+  margin: auto;
+}
+

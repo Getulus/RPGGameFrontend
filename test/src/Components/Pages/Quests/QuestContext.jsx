@@ -13,13 +13,11 @@ export const QuestCollection = (props) => {
       .get("http://localhost:8762/charondor/quest/tavern-quests")
       .then((res) => {
         setAvailableQuests(res.data);
-        console.log(res.data);
       });
     axios
       .get("http://localhost:8762/charondor/quest/player-quests")
       .then((res) => {
         setPlayerQuests(res.data);
-        console.log(res.data);
       });
   }, [updateQuest]);
 

@@ -9,6 +9,7 @@ import CombatPage from './Components/Pages/Combat/CombatPage';
 import ChooseClass from './Components/Pages/Creation/ChooseClass';
 import { QuestCollection } from './Components/Pages/Quests/QuestContext';
 import Header from './Components/Pages/Character/Header/Header';
+import BattlePage from './Components/Pages/Combat/BattlePage';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <CharacterCollection>
         <CombatLogCollection>
           <QuestCollection>  
-            
+            <Route exact path="/battle" component={BattlePage}></Route>
             <Route exact path='/character' component={CharacterPage}></Route>
             <Route exact path="/" component={HomePage}></Route>
             <Route exact path="/combat" component={CombatPage}></Route>

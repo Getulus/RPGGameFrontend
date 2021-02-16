@@ -34,14 +34,17 @@ const Adventures = () => {
       .post(`http://localhost:8762/charondor/adventure/set-adventure`, {
         name: name,
       })
-      .then((res) => {});
+      .then((res) => {
+        setUpdate(update + 1)
+        console.log(currentMonster);
+      })
   };
 
   return (
     <div className="adventure-container">
       <div className="adventure-panel">
         <p className="adv-title">Misty Forest 1-2</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Misty Forest")}
             src={forestImg}
@@ -53,7 +56,7 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Spider Cave 3-4</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Spider Cave")}
             src={spiderCaveImg}
@@ -65,7 +68,7 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Land of Ogres 4-6</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Land of Ogres")}
             src={ogresLandImg}
@@ -77,7 +80,7 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Lion's Highland 5-8</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Lion's Highland")}
             src={lionsHighlandImg}
@@ -89,7 +92,7 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Tower of Suffering 7-9</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Tower of Suffering")}
             src={towerOfSufferingImg}
@@ -101,7 +104,7 @@ const Adventures = () => {
 
       <div className="adventure-panel">
         <p className="adv-title">Devil's Pit 10</p>
-        <Link to="/combat">
+        <Link to="/battle">
           <img
             onClick={() => setAdventure("Devil's Pit")}
             src={devilsPitImg}

@@ -21,9 +21,6 @@ const Header = () => {
   const [inventory, setInventory, updateInventory, setUpdateInventory] = useContext(InventoryContext)
 
 
-  useEffect(()=>{
-    console.log(currentPlayer.gold)
-  },[currentPlayer])
 
   return (
     <div className="header">

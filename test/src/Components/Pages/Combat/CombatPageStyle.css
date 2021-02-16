@@ -2,6 +2,7 @@
 
 .combat-page {
   text-align: center;
+  padding: 20px;
 }
 
 .combat-container {
@@ -9,6 +10,7 @@
   display: grid;
   border: goldenrod 1px solid;
   gap: 10px;
+  height: 600px;
 }
 
 .combat-panel {
@@ -31,7 +33,7 @@
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 3;
-  height: 600px;
+  height: 560px;
   width: 400px;
   overflow: scroll;
   

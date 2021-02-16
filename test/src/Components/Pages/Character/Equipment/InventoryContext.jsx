@@ -11,7 +11,6 @@ export const InventoryCollection = (props) => {
   useEffect(() => {
     axios.get("http://localhost:8762/charondor/items/inventory-items").then((res)=> {
         setInventory(res.data);
-        console.log(res.data)
     })        
 }, [updateInventory])
 

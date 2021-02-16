@@ -15,7 +15,6 @@ export const CharacterCollection = (props) => {
       .then((res) => {
         setCurrentPlayer(res.data);
         setPlayerAttributes(res.data.attributePoints);
-        console.log(res.data);
       });
   }, [update]);
 
@@ -24,7 +23,6 @@ export const CharacterCollection = (props) => {
       .get(`http://localhost:8762/charondor/character/monster`)
       .then((res) => {
         setCurrentMonster(res.data);
-        console.log(res.data);
       });
   }, [update]);
 
