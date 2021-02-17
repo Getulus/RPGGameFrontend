@@ -24,6 +24,8 @@ import { QuestCollection } from "../Quests/QuestContext";
 import Header from "./Header/Header";
 import Shop from "./Shop/Shop";
 import { AttributeImageCollection } from "./Attributes/AttributeImagesContext";
+import Skills from "./Skills/Skill";
+import SkillPage from "./Skills/SkillPage";
 
 const CharacterPage = () => {
   const [
@@ -102,6 +104,17 @@ const CharacterPage = () => {
     );
   };
 
+  const renderSkills = () => {
+    setRightSide(
+      <CharacterCollection>
+        <InventoryCollection>
+          <Header></Header>
+          <SkillPage></SkillPage>
+        </InventoryCollection>
+      </CharacterCollection>
+    );
+  };
+
   return (
     <AttributeImageCollection>
       <div className="character-page">
@@ -119,7 +132,10 @@ const CharacterPage = () => {
               {" "}
               Equipment
             </div>
-            <div className="panel"> Skills</div>
+            <div className="panel" onClick={renderSkills}>
+              {" "}
+              Skills
+            </div>
             <div className="panel" onClick={renderAdventures}>
               {" "}
               Adventures

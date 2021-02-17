@@ -5,30 +5,33 @@ import React, {
   useEffect,
 } from "react";
 import { CharactersContext } from "../CharacterContext";
-import "./SkillStyle.css"
+import "./SkillStyle.css";
 
 const Skills = () => {
+  const [
+    currentPlayer,
+    setCurrentPlayer,
+    currentMonster,
+    setCurrentMonster,
+    update,
+    setUpdate,
+  ] = useContext(CharactersContext);
+
+  const renderSkills = (skill) => {
+    return (
+      <div className="skill tooltip">
+        <div>{skill.name}</div>
+        <img className="skill-img" src={skill.image} alt=""></img>
+        <div className="skill-tip">{skill.text}</div>
+      </div>
+    );
+  };
+
   return (
     <div className="skill-container">
-      <div className="skill">
-        <img className="skill-img" alt=""></img>
-        <div>Skill name</div>
-      </div>
-      <div className="skill">
-        <img className="skill-img" alt=""></img>
-        <div>Skill name</div>
-      </div>
-      <div className="skill">
-        <img className="skill-img" alt=""></img>
-        <div>Skill name</div>
-      </div>
-      <div className="skill">
-        <img className="skill-img" alt=""></img>
-        <div>Skill name</div>
-      </div>
+      {currentPlayer.skills.map((skill) => renderSkills(skill))}
     </div>
   );
 };
 
-
-export default Skills
+export default Skills;

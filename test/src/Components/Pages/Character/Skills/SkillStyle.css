@@ -10,14 +10,42 @@
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 3;
+  gap: 10px;
+  padding: 15px;
 
 }
 
 .skill {
-  width: 30px;
-  height: 30px;
+  width: 130px;
+  height: 110px;
   display: grid;
   border: goldenrod 1px dotted;
   margin: auto;
+  text-align: center;
 }
 
+.skill-img{
+  margin: auto;
+  width: 80px;
+  height: 80px;
+}
+
+.skill-tip {
+  visibility: hidden;
+  width: 200px;
+  padding: 10px;
+  background-color: black;
+  color: goldenrod;
+  right: 105%;
+
+  border-radius: 6px;
+  border: goldenrod 2px solid;
+  text-align: left;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+}
+
+.tooltip:hover  .skill-tip{
+  visibility: visible;
+}

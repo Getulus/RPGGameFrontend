@@ -1,0 +1,15 @@
+.skill-main-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    
+    text-align: center;
+    gap: 20px;
+    width: 1125px;
+    padding: 20px;
+}
+
+.trainer-image{
+    height: 575px;
+    width: 520px;
+    margin: auto;
+}
